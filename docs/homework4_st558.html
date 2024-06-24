@@ -157,7 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>What is a side-effect function?</li>
 </ol>
 <ul>
-<li>A: Side-effects modify some state but don’t naturally return the modified argument (df), e.g.&nbsp;print(), write_csv(), etc.</li>
+<li>A: Side-effect function modify some state but don’t naturally return the modified argument, such as print(), write_csv().</li>
 </ul>
 <ol start="5" type="1">
 <li>Why can you name a variable sd in a function and not cause any issues with the sd function?</li>
@@ -486,13 +486,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>List of 10
  $ url        : chr "https://newsapi.org/v2/everything?q=Jerome%20Powell&amp;from=2024-06-20&amp;apikey=0eca322394b24a1786944625148c3767"
  $ status_code: int 200
- $ headers    :List of 16
+ $ headers    :List of 14
   ..- attr(*, "class")= chr [1:2] "insensitive" "list"
  $ all_headers:List of 1
  $ cookies    :'data.frame':    0 obs. of  7 variables:
  $ content    : raw [1:18216] 7b 22 73 74 ...
- $ date       : POSIXct[1:1], format: "2024-06-24 18:23:35"
- $ times      : Named num [1:6] 0 0.005 0.0183 0.0594 0.2327 ...
+ $ date       : POSIXct[1:1], format: "2024-06-24 18:29:35"
+ $ times      : Named num [1:6] 0 0.158 0.175 0.224 0.732 ...
   ..- attr(*, "names")= chr [1:6] "redirect" "namelookup" "connect" "pretransfer" ...
  $ request    :List of 7
   ..- attr(*, "class")= chr "request"
@@ -560,11 +560,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3                       Inflation schwächer - Schweizerische Nationalbank senkt erneut den Leitzins
 4                                                         What To Expect From June’s Inflation Data
 5                  Pair of Big Bets Stand to Benefit If Odds Rise for Fed Interest-Rate Cut in July
-6                     What Makes Kinder Morgan, Inc. (KMI) a Good Robinhood Stock to Buy Right Now?
-7                          What Makes Analysts Keep a Bullish View on Grab Holdings Limited (GRAB)?
-8                             Carnival Corporation &amp; plc (CCL): Is this Robinhood Stock a Good Buy?
-9                                     Did Nu Holdings Ltd. (NU) Reach Significant Milestones in Q1?
-10 Blue Owl Capital Inc. (OWL): Did Recent Strategic Acquisitions Provide a Bull Case for the Firm?
+6                             Carnival Corporation &amp; plc (CCL): Is this Robinhood Stock a Good Buy?
+7                     What Makes Kinder Morgan, Inc. (KMI) a Good Robinhood Stock to Buy Right Now?
+8                          What Makes Analysts Keep a Bullish View on Grab Holdings Limited (GRAB)?
+9  Blue Owl Capital Inc. (OWL): Did Recent Strategic Acquisitions Provide a Bull Case for the Firm?
+10                                    Did Nu Holdings Ltd. (NU) Reach Significant Milestones in Q1?
 11              Stock market today: S&amp;P 500 and Nasdaq head for new highs as Nvidia rally pushes on
 12                      Inflation schwächer - Schweizerische Nationalbank senkt erneut den Leitzins
 13                 Hot Rodent Boys, Why We Love Them and Why Hollywood’s Male Beauty Standards Suck
@@ -582,11 +582,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3                                                                                                                                          Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.
 4                                                                                                                                                            June's CPI inflation data is expected to lend support to anticipated interest rate cuts in 2024 and beyond.
 5                                                                                                       (Bloomberg) -- A pair of large bets in the fed funds futures market are attracting attention on Wall Street by setting aside the market-implied consensus for...
-6                                                                                                          We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI...
-7                                                                                                                  We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Grab Holdings Limited...
-8                                                                                                             We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Carnival Corporation &amp; plc...
-9                                                                                                              We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU...
-10                                                                                                      We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL)...
+6                                                                                                             We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Carnival Corporation &amp; plc...
+7                                                                                                          We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI...
+8                                                                                                                  We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Grab Holdings Limited...
+9                                                                                                       We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL)...
+10                                                                                                             We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU...
 11                                                                                                               Major averages were headed for another all-time high Thursday amid Nvidia's big rally this week. Jobless claims continued to hover near 10-month highs.
 12                                                                                                                                         Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.
 13 The internet loves itself a cute boy. We all like a nice non-threatening screen idol with Film Twitter appeal who also doesn't mind doing underwear ads for our shameless consumption. Every generation gets its sex symbols and the entertainment industry...\nRead…
@@ -604,11 +604,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3                                           https://www.focus.de/finanzen/boerse/inflation-schwaecher-nur-noch-1-25-prozent-schweizerische-nationalbank-senkt-leitzins_id_260067701.html
 4                                                                                           https://www.forbes.com/sites/simonmoore/2024/06/23/what-to-expect-from-junes-inflation-data/
 5                                                                                                              https://finance.yahoo.com/news/pair-big-bets-stand-benefit-160512529.html
-6                                                                                                              https://finance.yahoo.com/news/makes-kinder-morgan-inc-kmi-122905223.html
-7                                                                                                         https://finance.yahoo.com/news/makes-analysts-keep-bullish-view-023609470.html
-8                                                                                                   https://finance.yahoo.com/news/carnival-corporation-plc-ccl-robinhood-125109423.html
-9                                                                                                                   https://finance.yahoo.com/news/did-nu-holdings-ltd-nu-131926564.html
-10                                                                                                                https://finance.yahoo.com/news/blue-owl-capital-inc-owl-114122156.html
+6                                                                                                   https://finance.yahoo.com/news/carnival-corporation-plc-ccl-robinhood-125109423.html
+7                                                                                                              https://finance.yahoo.com/news/makes-kinder-morgan-inc-kmi-122905223.html
+8                                                                                                         https://finance.yahoo.com/news/makes-analysts-keep-bullish-view-023609470.html
+9                                                                                                                 https://finance.yahoo.com/news/blue-owl-capital-inc-owl-114122156.html
+10                                                                                                                  https://finance.yahoo.com/news/did-nu-holdings-ltd-nu-131926564.html
 11                                                             https://markets.businessinsider.com/news/stocks/stock-market-today-sp500-nasdaq-record-highs-nvidia-jobless-claims-2024-6
 12                                           https://www.focus.de/finanzen/boerse/inflation-schwaecher-schweizerische-nationalbank-senkt-den-leitzins-auf-1-25-prozent_id_260067701.html
 13                                             https://www.pajiba.com/celebrities_are_better_than_you/hot-rodent-boys-why-we-love-them-and-why-hollywoods-male-beauty-standards-suck.php
@@ -626,11 +626,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3  https://p6.focus.de/img/fotos/id_24207339/schweiz-und-flagge.jpg?im=Crop%3D%280%2C67%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=5b020d6ca4c47b3eb6e64ea792f1d875e8adbc80a0b9bf1f2b51c599e5244db3
 4                                                                                                             https://imageio.forbes.com/specials-images/imageserve/66768d6a4410b6b68b1d928d/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds
 5                                                                                                                                                              https://media.zenfs.com/en/bloomberg_markets_842/41370f5ede32eb28fee49ab0b238ebf9
-6                                                              https://s.yimg.com/ny/api/res/1.2/e6W1_0xZyOSq6OhxCm2OUQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/f2815fee8dd87c41e4294d91093397d7
-7                                                              https://s.yimg.com/ny/api/res/1.2/FOL1DgQUZunVccVzIITs1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/eb62ab7daeeb4202fffa4df505d5bd7f
-8                                                              https://s.yimg.com/ny/api/res/1.2/vUrdsC1iWmxjPSj6jgZt4g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/66f6dd83cd222d38b1b617434c143fa8
-9                                                              https://s.yimg.com/ny/api/res/1.2/ZvamXmjdkpmJHtISfGAGVQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/3e6737a09ed1e20ab44c649751392f5b
-10                                                             https://s.yimg.com/ny/api/res/1.2/2A._xmKZUfVOgyTCnpogHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/4d15674f00efaabee164f7a24d2a13fa
+6                                                              https://s.yimg.com/ny/api/res/1.2/vUrdsC1iWmxjPSj6jgZt4g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/66f6dd83cd222d38b1b617434c143fa8
+7                                                              https://s.yimg.com/ny/api/res/1.2/e6W1_0xZyOSq6OhxCm2OUQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/f2815fee8dd87c41e4294d91093397d7
+8                                                              https://s.yimg.com/ny/api/res/1.2/FOL1DgQUZunVccVzIITs1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/eb62ab7daeeb4202fffa4df505d5bd7f
+9                                                              https://s.yimg.com/ny/api/res/1.2/2A._xmKZUfVOgyTCnpogHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/4d15674f00efaabee164f7a24d2a13fa
+10                                                             https://s.yimg.com/ny/api/res/1.2/ZvamXmjdkpmJHtISfGAGVQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/3e6737a09ed1e20ab44c649751392f5b
 11                                                                                                                                                                         https://i.insider.com/66741e30087acd2be9b4fe2f?width=1200&amp;format=jpeg
 12 https://p6.focus.de/img/fotos/id_24207339/schweiz-und-flagge.jpg?im=Crop%3D%280%2C67%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=5b020d6ca4c47b3eb6e64ea792f1d875e8adbc80a0b9bf1f2b51c599e5244db3
 13                                                                                                                                       https://www.pajiba.com/assets_c/2024/06/Mike%20Faist%20Josh%20OConnor%20Getty-thumb-700xauto-263451.jpg
@@ -648,11 +648,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3  2024-06-20T11:49:11Z
 4  2024-06-23T10:51:44Z
 5  2024-06-20T16:05:12Z
-6  2024-06-22T12:29:05Z
-7  2024-06-22T02:36:09Z
-8  2024-06-22T12:51:09Z
-9  2024-06-22T13:19:26Z
-10 2024-06-22T11:41:22Z
+6  2024-06-22T12:51:09Z
+7  2024-06-22T12:29:05Z
+8  2024-06-22T02:36:09Z
+9  2024-06-22T11:41:22Z
+10 2024-06-22T13:19:26Z
 11 2024-06-20T13:46:27Z
 12 2024-06-20T11:49:11Z
 13 2024-06-20T19:57:33Z
@@ -670,11 +670,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3      Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.Die Schweizerische Nationalbank (SNB) hat laut CNBC am Donnerstag ihren Le… [+1986 chars]
 4      Jerome Powell, chairman of the US Federal Reserve, during a news conference following a Federal Open ... [+] Market Committee (FOMC) meeting in Washington, DC, US, on Wednesday, June 12, 2024. Federa… [+3786 chars]
 5      (Bloomberg) -- A pair of large bets in the fed funds futures market are attracting attention on Wall Street by setting aside the market-implied consensus for the Federal Reserves first interest-rate … [+1539 chars]
-6     We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI) stands against the other Robinhood stocks.\r… [+6051 chars]
-7      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Grab Holdings Limited (NASDAQ:GRAB) stands against the other Robinhood sto… [+6600 chars]
-8      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Carnival Corporation &amp;amp; plc (NYSE:CCL) stands against the other Robinho… [+6720 chars]
-9    We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU) stands against the other Robinhood stocks.\r\nThe… [+7661 chars]
-10     We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL) stands against the other Robinhood stocks… [+6646 chars]
+6      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Carnival Corporation &amp;amp; plc (NYSE:CCL) stands against the other Robinho… [+6720 chars]
+7     We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI) stands against the other Robinhood stocks.\r… [+6051 chars]
+8      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Grab Holdings Limited (NASDAQ:GRAB) stands against the other Robinhood sto… [+6600 chars]
+9      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL) stands against the other Robinhood stocks… [+6646 chars]
+10   We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU) stands against the other Robinhood stocks.\r\nThe… [+7661 chars]
 11   US stock averages rose on Thursday, with the S&amp;amp;P 500 and the Nasdaq on track for another record.\r\nTraders returned from the Juneteenth holiday with Nvidia shares continuing to soar after the comp… [+1963 chars]
 12     Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.Die Schweizerische Nationalbank (SNB) hat laut CNBC am Donnerstag ihren Le… [+1986 chars]
 13     The internet loves itself a cute boy. We all like a nice non-threatening screen idol with Film Twitter appeal who also doesn’t mind doing underwear ads for our shameless consumption. Every generation… [+5255 chars]
@@ -717,314 +717,322 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1                 &lt;NA&gt;              Forbes
 2                 &lt;NA&gt;              Forbes
 3                 &lt;NA&gt; Yahoo Entertainment
-4                 &lt;NA&gt;              Forbes
-5                 &lt;NA&gt; Yahoo Entertainment
+4                 &lt;NA&gt; Yahoo Entertainment
+5                 &lt;NA&gt;              Forbes
 6                 &lt;NA&gt; Yahoo Entertainment
-7     business-insider    Business Insider
-8                 &lt;NA&gt;          Biztoc.com
-9                 &lt;NA&gt;         CryptoGlobe
-10                &lt;NA&gt;          Biztoc.com
-11                &lt;NA&gt;        Investopedia
-12                &lt;NA&gt;                 AOL
-13                &lt;NA&gt;                CNBC
-14                &lt;NA&gt;          Biztoc.com
+7                 &lt;NA&gt; Yahoo Entertainment
+8     business-insider    Business Insider
+9                 &lt;NA&gt;          Biztoc.com
+10                &lt;NA&gt;         CryptoGlobe
+11                &lt;NA&gt;          Biztoc.com
+12                &lt;NA&gt;        Investopedia
+13                &lt;NA&gt;                 AOL
+14                &lt;NA&gt;                CNBC
 15                &lt;NA&gt;          Biztoc.com
 16                &lt;NA&gt;          Biztoc.com
-17                &lt;NA&gt; Yahoo Entertainment
-18                &lt;NA&gt;    Activistpost.com
-19                &lt;NA&gt;         CryptoGlobe
-20                &lt;NA&gt;        Portfolio.hu
-21               focus               Focus
+17                &lt;NA&gt;          Biztoc.com
+18                &lt;NA&gt; Yahoo Entertainment
+19                &lt;NA&gt;    Activistpost.com
+20                &lt;NA&gt;         CryptoGlobe
+21                &lt;NA&gt;        Portfolio.hu
 22               focus               Focus
 23               focus               Focus
-24                &lt;NA&gt;        STLtoday.com
-25             fortune             Fortune
-26                &lt;NA&gt; Yahoo Entertainment
-27             fortune             Fortune
-28      financial-post      Financial Post
-29                &lt;NA&gt;  New Zealand Herald
-30                &lt;NA&gt;                CNBC
+24               focus               Focus
+25                &lt;NA&gt;        STLtoday.com
+26             fortune             Fortune
+27                &lt;NA&gt; Yahoo Entertainment
+28             fortune             Fortune
+29      financial-post      Financial Post
+30                &lt;NA&gt;  New Zealand Herald
 31                &lt;NA&gt;                CNBC
-32 the-washington-post The Washington Post
-33                &lt;NA&gt;         Mercola.com
-34                &lt;NA&gt;           Lse.ac.uk
-35                &lt;NA&gt;        Mother Jones
-36               globo               Globo
-37                 cnn                 CNN
-38                &lt;NA&gt;    The Manila Times
+32                &lt;NA&gt;                CNBC
+33 the-washington-post The Washington Post
+34                &lt;NA&gt;         Mercola.com
+35                &lt;NA&gt;           Lse.ac.uk
+36                &lt;NA&gt;        Mother Jones
+37               globo               Globo
+38                 cnn                 CNN
+39                &lt;NA&gt;    The Manila Times
                                                                                                            author
 1  Simon Moore, Senior Contributor, \n Simon Moore, Senior Contributor\n https://www.forbes.com/sites/simonmoore/
 2             Ann Rutledge, Contributor, \n Ann Rutledge, Contributor\n https://www.forbes.com/sites/annrutledge/
 3                                                                                                 Adam Palasciano
-4          Zennon Kapron, Contributor, \n Zennon Kapron, Contributor\n https://www.forbes.com/sites/zennonkapron/
-5                                                                                                      Casey Bond
+4                                                                                                        鉅亨研報
+5          Zennon Kapron, Contributor, \n Zennon Kapron, Contributor\n https://www.forbes.com/sites/zennonkapron/
 6                                                                                                      Casey Bond
-7                                                                 insider@insider.com (Molly Grace,Sarah Silbert)
-8                                                                                                          ft.com
-9                                                                                                  Siamak Masnavi
-10                                                                                                  dailyhodl.com
-11                                                                                                     Terry Lane
-12                                                                                                      Moneywise
-13                                                                                                           &lt;NA&gt;
-14                                                                                                    fortune.com
-15                                                                                              financialpost.com
-16                                                                                              finance.yahoo.com
-17                                                                                                   Myles Udland
-18                                                                                                  Activist Post
-19                                                                                             CryptoGlobe Writer
-20                                                                                                   Portfolio.hu
-21                                                                                                   FOCUS online
+7                                                                                                      Casey Bond
+8                                                                 insider@insider.com (Molly Grace,Sarah Silbert)
+9                                                                                                          ft.com
+10                                                                                                 Siamak Masnavi
+11                                                                                                  dailyhodl.com
+12                                                                                                     Terry Lane
+13                                                                                                      Moneywise
+14                                                                                                           &lt;NA&gt;
+15                                                                                                    fortune.com
+16                                                                                              financialpost.com
+17                                                                                              finance.yahoo.com
+18                                                                                                   Myles Udland
+19                                                                                                  Activist Post
+20                                                                                             CryptoGlobe Writer
+21                                                                                                   Portfolio.hu
 22                                                                                                   FOCUS online
 23                                                                                                   FOCUS online
-24                                                                      By Tony Messenger St. Louis Post-Dispatch
-25                                                                         Vince Golle, Craig Stirling, Bloomberg
-26                                                                                                    Will Daniel
+24                                                                                                   FOCUS online
+25                                                                      By Tony Messenger St. Louis Post-Dispatch
+26                                                                         Vince Golle, Craig Stirling, Bloomberg
 27                                                                                                    Will Daniel
-28                                                                                      Special to Financial Post
-29                                                                                                    Mark Lister
-30                                                                                                           &lt;NA&gt;
+28                                                                                                    Will Daniel
+29                                                                                      Special to Financial Post
+30                                                                                                    Mark Lister
 31                                                                                                           &lt;NA&gt;
-32                                                                                    Sarah Kaplan, Rachel Siegel
-33                                                                   communities@mercola.com (Dr. Joseph Mercola)
-34                                                                                                     Blog Admin
-35                                                                                                   Nitish Pahwa
-36                                                                                                           &lt;NA&gt;
-37                                                                                                     Bryan Mena
-38                                                                                        Niña Myka Pauline Arceo
+32                                                                                                           &lt;NA&gt;
+33                                                                                    Sarah Kaplan, Rachel Siegel
+34                                                                   communities@mercola.com (Dr. Joseph Mercola)
+35                                                                                                     Blog Admin
+36                                                                                                   Nitish Pahwa
+37                                                                                                           &lt;NA&gt;
+38                                                                                                     Bryan Mena
+39                                                                                        Niña Myka Pauline Arceo
                                                                                                                                            title
 1                                                                                                      What To Expect From June’s Inflation Data
 2                                                                          Why Christy Romero’s CV Makes Her Such A Promising FDIC Chair-Nominee
 3                                                                                                        3 Best Ways To Quickly Reduce Your Debt
-4                                                                                        Cross-Border CBDC Focused Project MBridge Moves Forward
-5                                                                                                CD rates today, June 23, 2024 (up to 5.15% APY)
-6                                                                 Savings interest rates today, June 23, 2024 (best accounts offering 5.50% APY)
-7                                                                           Mortgage Interest Rates Today, June 23, 2024 | Rates Remain Under 7%
-8                                                       Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan
-9                                                  Bitcoin’s Future Amid Potential Federal Reserve Rate Cuts: Crypto Analyst Lark Davis Explains
-10 JPMorgan Chase, Bank of America and Citibank Flagged for Holding Trillions of Dollars in Derivatives Without Proper Contingency Plans: Report
-11                                                                                                       What To Expect in the Markets This Week
-12                           The Biden administration finalized a controversial new retirement rule — here are 3 key things you need to know now
-13                                                         Trump previews debate attacks against Biden's economy days before candidates face off
-14                                                                        AI automation in the workplace is about to reach a major tipping point
-15                                                                   Fed interest rate cut could come sooner than markets think, says strategist
-16                                                              The Fed's first rate cut of 2024 could come next month if the labor market slows
-17                                                           Fed's favorite inflation reading highlights last week of Q2: What to know this week
-18                                                                    The Abstract episode 35 “Rockefellers Covering the Earth with CHEMTRAILS?”
-19                                                                  Why Bitcoin Is Not Skyrocketing Right Now, Explains Prominent Crypto Analyst
-20                                                                                Eichengreen: Az Egyesült Államok adóssága és az IMF álomvilága
-21                             Nie mehr als zwei Prozent verloren - Aktienmärkte befinden sich in längster Phase ohne Absturz seit dem Jahr 2007
+4                                                                                           指數創新高是喜還是憂？用共同基金投資美股其實更勝一籌
+5                                                                                        Cross-Border CBDC Focused Project MBridge Moves Forward
+6                                                                                                CD rates today, June 23, 2024 (up to 5.15% APY)
+7                                                                 Savings interest rates today, June 23, 2024 (best accounts offering 5.50% APY)
+8                                                                           Mortgage Interest Rates Today, June 23, 2024 | Rates Remain Under 7%
+9                                                       Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan
+10                                                 Bitcoin’s Future Amid Potential Federal Reserve Rate Cuts: Crypto Analyst Lark Davis Explains
+11 JPMorgan Chase, Bank of America and Citibank Flagged for Holding Trillions of Dollars in Derivatives Without Proper Contingency Plans: Report
+12                                                                                                       What To Expect in the Markets This Week
+13                           The Biden administration finalized a controversial new retirement rule — here are 3 key things you need to know now
+14                                                         Trump previews debate attacks against Biden's economy days before candidates face off
+15                                                                        AI automation in the workplace is about to reach a major tipping point
+16                                                                   Fed interest rate cut could come sooner than markets think, says strategist
+17                                                              The Fed's first rate cut of 2024 could come next month if the labor market slows
+18                                                           Fed's favorite inflation reading highlights last week of Q2: What to know this week
+19                                                                    The Abstract episode 35 “Rockefellers Covering the Earth with CHEMTRAILS?”
+20                                                                  Why Bitcoin Is Not Skyrocketing Right Now, Explains Prominent Crypto Analyst
+21                                                                                Eichengreen: Az Egyesült Államok adóssága és az IMF álomvilága
 22                             Nie mehr als zwei Prozent verloren - Aktienmärkte befinden sich in längster Phase ohne Absturz seit dem Jahr 2007
-23                                    Nie mehr als zwei Prozent verloren - S&amp;P 500 befindet sich in längster Aufschwung-Phase seit dem Jahr 2007
-24                                                                          Messenger: St. Louis faces a double-barreled legal attack on poverty
-25                                                                             Fed rate cuts could become more likely after key inflation report
-26                            This is the ‘special sauce’ behind American exceptionalism—and why the U.S. stock market could continue dominating
+23                             Nie mehr als zwei Prozent verloren - Aktienmärkte befinden sich in längster Phase ohne Absturz seit dem Jahr 2007
+24                                    Nie mehr als zwei Prozent verloren - S&amp;P 500 befindet sich in längster Aufschwung-Phase seit dem Jahr 2007
+25                                                                          Messenger: St. Louis faces a double-barreled legal attack on poverty
+26                                                                             Fed rate cuts could become more likely after key inflation report
 27                            This is the ‘special sauce’ behind American exceptionalism—and why the U.S. stock market could continue dominating
-28                                                                                  Sweet ‘n’ low: Where to find value in unrated credit markets
-29                                                                           Mark Lister: It’s election debate time, and Trump’s in the box seat
-30                                                          These are the least difficult areas in U.S. to buy a home: NBC News Home Buyer Index
-31                                                                             Top Wall Street analysts recommend these stocks for the long haul
-32                                                                                    Climate change is already making your bills more expensive
-33                                                                                                                              The Great Taking
-34                                                                                                        Book Review | The Bankers’ New Clothes
-35                                                                           Climate Change is Fueling An Affordability Crisis—It May Not Let Up
-36                                                     Mercados aguardam ata do Copom, Relatório de Inflação, IPCA-15 e PCE nos EUA nesta semana
-37                                                                                   America’s housing crisis continues to worsen | CNN Business
-38                                                                                                      Bangko Sentral seen keeping rates steady
+28                            This is the ‘special sauce’ behind American exceptionalism—and why the U.S. stock market could continue dominating
+29                                                                                  Sweet ‘n’ low: Where to find value in unrated credit markets
+30                                                                           Mark Lister: It’s election debate time, and Trump’s in the box seat
+31                                                          These are the least difficult areas in U.S. to buy a home: NBC News Home Buyer Index
+32                                                                             Top Wall Street analysts recommend these stocks for the long haul
+33                                                                                    Climate change is already making your bills more expensive
+34                                                                                                                              The Great Taking
+35                                                                                                        Book Review | The Bankers’ New Clothes
+36                                                                           Climate Change is Fueling An Affordability Crisis—It May Not Let Up
+37                                                     Mercados aguardam ata do Copom, Relatório de Inflação, IPCA-15 e PCE nos EUA nesta semana
+38                                                                                   America’s housing crisis continues to worsen | CNN Business
+39                                                                                                      Bangko Sentral seen keeping rates steady
                                                                                                                                                                                                                                                               description
 1                                                                                                                                                             June's CPI inflation data is expected to lend support to anticipated interest rate cuts in 2024 and beyond.
 2                                                                                              The toxin in the FDIC’s workplace culture is a deep-seated disdain for credit work. To fix the FDIC we must elevate credit again. That's Christy Goldsmith Romero's forte.
 3                                                                                                          In most cases, debt isn't good. It eats a hole in your wallet and creates a continuous drain on your finances. The bad news is that U.S. household debt has...
-4                                                                                                                        Central Bank Digital Currencies have the potential to make cross-border payments faster, better, and cheaper. That just took a big step forward.
-5                                                                                                                                             If you’re searching for today’s best CD rates, we’ve narrowed down some of the top offers. Learn more about CD rates today.
-6                                                                                                                 If you’re searching for today’s best savings interest rates, we’ve narrowed down some of the top offers. Learn more about savings interest rates today.
-7                                                                                                                         These are today's mortgage and refinance rates. Since early May, rates have remained under 7%, but they likely won't fall much more until 2025.
-8  Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial Times\nRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will plans CNBC\nFed Says Wall Street Giants Have a Shortcoming Blo…
-9    In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoin’s price when the Federal Reserve eventually cuts interest rates? Lark Davis begins by examining the history of …
-10  US regulators are flagging JPMorgan Chase, Bank of America, Citibank and Goldman Sachs over the banks’ contingency plans for trillions of dollars in derivatives.\nThe Federal Reserve and Federal Deposit Insurance Corporation (FDIC) say the lenders’ so-called “…
-11                                                                                                                                              Coming up: PCE inflation, GDP revisions, Nvidia's shareholder meeting, and earnings reports from Micron, FedEx, and Nike.
-12                                                                                                                                                                                                   Important information for anyone seeking retirement planning advice.
-13                                                                                                                                                   Donald Trump and President Biden will face off in the first presidential debate of the November election on June 27.
-14  More U.S. companies are about to flip the “on” switch when it comes to automating tasks with artificial intelligence.\nAccording to a survey of CFOs by Duke University’s Fuqua School of Business and the Federal Reserve Banks of Richmond and Atlanta, plans to u…
-15   Kristina Hooper, chief global market strategist at Invesco, talks with Financial Post’s Larysa Harapyn about how markets and economies might react as central banks start cutting interest rates. She also predicts that the United States Federal Reserve could cu…
-16 The Federal Reserve may cut interest rates in July to prevent a recession.\nWeakening labor- and housing-market data top the list of concerns over tight financial conditions.\nMarkets are only pricing in a 10% chance of an interest-rate cut in July, per CME Fed…
-17                                                                                                           The final trading week of the first half of the year will greet investors with a quieter economic and earnings calendar, with the Fed's favored inflation...
-18                                      By Peter A. Kirby In large part, the history of the Rockefeller family is the history of today’s chemtrail spraying operations referred to here as...\nThe Abstract episode 35 “Rockefellers Covering the Earth with CHEMTRAILS?”
-19   In a recent video, Toby Cunningham, co-host of the Crypto Tips YouTube channel, discusses why Bitcoin has been hovering around the mid $65,000 range. Cunningham explains that this “crabbing” phase, where Bitcoin’s price remains stagnant, has led many to specu…
-20   A gazdasági naptár egyik legszórakoztatóbb eseményének az számít, amikor a Nemzetközi Valutaalap (IMF) közreadja éves felülvizsgálatát az Egyesült Államokról. Bár mindenki tudja, hogy az amerikai kormány semmibe szokta venni, hogy az IMF mit mond az amerikai …
-21                                             Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln gerade die Märkte.
+4                                                                                                                                                                                                                                                    【摩根投信行銷文宣】
+5                                                                                                                        Central Bank Digital Currencies have the potential to make cross-border payments faster, better, and cheaper. That just took a big step forward.
+6                                                                                                                                             If you’re searching for today’s best CD rates, we’ve narrowed down some of the top offers. Learn more about CD rates today.
+7                                                                                                                 If you’re searching for today’s best savings interest rates, we’ve narrowed down some of the top offers. Learn more about savings interest rates today.
+8                                                                                                                         These are today's mortgage and refinance rates. Since early May, rates have remained under 7%, but they likely won't fall much more until 2025.
+9  Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial Times\nRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will plans CNBC\nFed Says Wall Street Giants Have a Shortcoming Blo…
+10   In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoin’s price when the Federal Reserve eventually cuts interest rates? Lark Davis begins by examining the history of …
+11  US regulators are flagging JPMorgan Chase, Bank of America, Citibank and Goldman Sachs over the banks’ contingency plans for trillions of dollars in derivatives.\nThe Federal Reserve and Federal Deposit Insurance Corporation (FDIC) say the lenders’ so-called “…
+12                                                                                                                                              Coming up: PCE inflation, GDP revisions, Nvidia's shareholder meeting, and earnings reports from Micron, FedEx, and Nike.
+13                                                                                                                                                                                                   Important information for anyone seeking retirement planning advice.
+14                                                                                                                                                   Donald Trump and President Biden will face off in the first presidential debate of the November election on June 27.
+15  More U.S. companies are about to flip the “on” switch when it comes to automating tasks with artificial intelligence.\nAccording to a survey of CFOs by Duke University’s Fuqua School of Business and the Federal Reserve Banks of Richmond and Atlanta, plans to u…
+16   Kristina Hooper, chief global market strategist at Invesco, talks with Financial Post’s Larysa Harapyn about how markets and economies might react as central banks start cutting interest rates. She also predicts that the United States Federal Reserve could cu…
+17 The Federal Reserve may cut interest rates in July to prevent a recession.\nWeakening labor- and housing-market data top the list of concerns over tight financial conditions.\nMarkets are only pricing in a 10% chance of an interest-rate cut in July, per CME Fed…
+18                                                                                                           The final trading week of the first half of the year will greet investors with a quieter economic and earnings calendar, with the Fed's favored inflation...
+19                                      By Peter A. Kirby In large part, the history of the Rockefeller family is the history of today’s chemtrail spraying operations referred to here as...\nThe Abstract episode 35 “Rockefellers Covering the Earth with CHEMTRAILS?”
+20   In a recent video, Toby Cunningham, co-host of the Crypto Tips YouTube channel, discusses why Bitcoin has been hovering around the mid $65,000 range. Cunningham explains that this “crabbing” phase, where Bitcoin’s price remains stagnant, has led many to specu…
+21   A gazdasági naptár egyik legszórakoztatóbb eseményének az számít, amikor a Nemzetközi Valutaalap (IMF) közreadja éves felülvizsgálatát az Egyesült Államokról. Bár mindenki tudja, hogy az amerikai kormány semmibe szokta venni, hogy az IMF mit mond az amerikai …
 22                                             Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln gerade die Märkte.
 23                                             Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln gerade die Märkte.
-24                                                                                                                                                                            Two lawsuits against the city of St. Louis tell a story about the redistribution of wealth.
-25                                                                              “We don’t think the slower inflation print will be enough to convince officials by the time of the July FOMC meeting that inflation is on a firm trajectory down to the Fed’s 2% target.”
-26                                                                                                         “Many countries have these various advantages, but none have the combination—or the entire package—quite like the U.S. does,” RiverFront Investment Group’s...
-27                                                                                     “Many countries have these various advantages, but none have the combination—or the entire package—quite like the U.S. does,” RiverFront Investment Group’s chief strategist said.
-28                                                                                                                                                                            The next five years hold immense potential for investing in stressed and distressed credits
-29                                                                                                                                                                                                OPINION: Biden will be hoping an early debate will revive his campaign.
-30                                                                                                                              While the overall housing market in the U.S. is faced with high prices and borrowing costs, buying a house might be easier in some areas.
-31                                                                                                                                              TipRanks' analyst ranking service pinpoints Wall Street's best-performing stocks, including Microsoft and Delta Air Lines
-32                                                                                                Researchers warn the hazards of climate change will only get worse, for the planet and the economy. Items as varied as groceries and insurance will get more expensive.
-33 Editor's Note: This article is a reprint. It was originally published January 7, 2024.\n\nThe video above features repeat guest Catherine Austin Fitts, a finance expert, and founder and president of the Solari Report. She's one of the wisest persons out there w…
-34   In a newly expanded version of their book, The Bankers’ New Clothes,&nbsp;Anat Admati and Martin Hellwig demystify banking and expose how current financial regulatory practices enrich bankers while increasing the risk of&nbsp;economic crises and undermining democracy. …
-35   This story was originally published by&nbsp;Slate&nbsp;and&nbsp;is reproduced here as part of the&nbsp;Climate Desk&nbsp;collaboration. If you’re one of the millions of Americans worried about your pocketbooks and the general cost of living, you might have picked up on some good news…
-36                                                                                                                                                                              Banco Central retoma protagonismo em semana repleta de eventos importantes para o mercado
-37                                                                                                                                                                                  In America, home prices are at record highs while hundreds of thousands are homeless.
-38                                      PHILIPPINE monetary authorities will likely keep key interest rates unchanged for a sixth straight meeting this Thursday, analysts said, pointing to the peso's current weakness and minimal risks of inflation breaching target.
-                                                                                                                                                                              url
-1                                                                                    https://www.forbes.com/sites/simonmoore/2024/06/23/what-to-expect-from-junes-inflation-data/
-2                                                       https://www.forbes.com/sites/annrutledge/2024/06/23/why-christy-romeros-cv-makes-her-such-a-promising-fdic-chair-nominee/
-3                                                                                                        https://finance.yahoo.com/news/3-best-ways-quickly-reduce-150019679.html
-4                                                                 https://www.forbes.com/sites/digital-assets/2024/06/23/cross-border-cbdc-focused-project-mbridge-moves-forward/
-5                                                                                    https://finance.yahoo.com/personal-finance/cd-rates-today-sunday-june-23-2024-100018873.html
-6                                                                      https://finance.yahoo.com/personal-finance/savings-interest-rates-today-sunday-june-23-2024-100020840.html
-7                                                                                            https://www.businessinsider.com/best-mortgage-refinance-rates-today-sunday-23-2024-6
-8                                                                                                                                           https://biztoc.com/x/f743309ef97fd5f0
-9                                         https://www.cryptoglobe.com/latest/2024/06/bitcoins-future-amid-potential-federal-reserve-rate-cuts-crypto-analyst-lark-davis-explains/
-10                                                                                                                                          https://biztoc.com/x/55c07287c5fbf346
-11                                                                                        https://www.investopedia.com/what-to-expect-in-the-markets-this-week-06-24-2024-8666609
-12                                                                             https://www.aol.com/finance/biden-administration-finalized-controversial-retirement-111700305.html
-13                                                                               https://www.cnbc.com/2024/06/23/trump-debate-preview-biden-economy-faith-freedom-convention.html
-14                                                                                                                                          https://biztoc.com/x/514267ad85ff15df
-15                                                                                                                                          https://biztoc.com/x/3ec71de4338abf54
-16                                                                                                                                          https://biztoc.com/x/d0f1135859cc532f
-17                                                https://finance.yahoo.com/news/feds-favorite-inflation-reading-highlights-last-week-of-q2-what-to-know-this-week-112926807.html
-18                                                              https://www.activistpost.com/2024/06/the-abstract-episode-35-rockefellers-covering-the-earth-with-chemtrails.html
-19                                                        https://www.cryptoglobe.com/latest/2024/06/why-bitcoin-is-not-skyrocketing-right-now-explains-prominent-crypto-analyst/
-20                                                                https://www.portfolio.hu/gazdasag/20240623/eichengreen-az-egyesult-allamok-adossaga-es-az-imf-alomvilaga-693251
-21       https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-befinden-sich-in-laengster-phase-ohne-absturz-seit-dem-jahr-2007_id_260074490.html
-22                               https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-erleben-laengste-anstiegsphase-seit-2007_id_260074490.html
-23               https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-s-p-500-befindet-sich-in-laengster-aufschwung-phase-seit-dem-jahr-2007_id_260074490.html
-24 https://www.stltoday.com/news/local/column/tony-messenger/messenger-st-louis-faces-a-double-barreled-legal-attack-on-poverty/article_ccb02c78-2fe5-11ef-910d-b792f77ddf35.html
-25                                                             https://fortune.com/2024/06/23/fed-rate-cuts-outlook-inflation-reports-personal-consumption-expenditures-core-pce/
-26                                                                                     https://finance.yahoo.com/news/special-sauce-behind-american-exceptionalism-100000173.html
-27                                                https://fortune.com/2024/06/23/american-exceptionalism-us-economic-outlook-stock-market-forecast-dollar-dominance-europe-china/
-28                                                                                  https://financialpost.com/investing/sweet-n-low-where-to-find-value-in-unrated-credit-markets
-29                             https://www.nzherald.co.nz/rotorua-daily-post/business/mark-lister-its-election-debate-time-and-trumps-in-the-box-seat/QYR6PDWDNNC5XI2Z4HSYRNXRJY/
-30                                                                     https://www.cnbc.com/2024/06/23/the-top-least-difficult-areas-to-buy-a-home-nbc-news-home-buyer-index.html
-31                                                                         https://www.cnbc.com/2024/06/23/top-wall-street-analysts-recommend-these-stocks-for-the-long-haul.html
-32                                                                                     https://www.washingtonpost.com/business/2024/06/23/climate-change-warming-economy-impacts/
-33                                                                                https://articles.mercola.com/sites/articles/archive/2024/06/23/david-webb-the-great-taking.aspx
-34                                                                                              https://blogs.lse.ac.uk/usappblog/2024/06/23/book-review-the-bankers-new-clothes/
-35                                                           https://www.motherjones.com/environment/2024/06/climate-change-is-fueling-an-affordability-crisis-it-may-not-let-up/
-36                              https://valor.globo.com/financas/noticia/2024/06/23/mercados-aguardam-ata-do-copom-relatorio-de-inflacao-ipca-15-e-pce-nos-eua-nesta-semana.ghtml
-37                                                                             https://www.cnn.com/2024/06/23/business/stocks-week-ahead-america-housing-crisis-worsen/index.html
-38                                                                  https://www.manilatimes.net/2024/06/24/business/top-business/bangko-sentral-seen-keeping-rates-steady/1952885
+24                                             Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln gerade die Märkte.
+25                                                                                                                                                                            Two lawsuits against the city of St. Louis tell a story about the redistribution of wealth.
+26                                                                              “We don’t think the slower inflation print will be enough to convince officials by the time of the July FOMC meeting that inflation is on a firm trajectory down to the Fed’s 2% target.”
+27                                                                                                         “Many countries have these various advantages, but none have the combination—or the entire package—quite like the U.S. does,” RiverFront Investment Group’s...
+28                                                                                     “Many countries have these various advantages, but none have the combination—or the entire package—quite like the U.S. does,” RiverFront Investment Group’s chief strategist said.
+29                                                                                                                                                                            The next five years hold immense potential for investing in stressed and distressed credits
+30                                                                                                                                                                                                OPINION: Biden will be hoping an early debate will revive his campaign.
+31                                                                                                                              While the overall housing market in the U.S. is faced with high prices and borrowing costs, buying a house might be easier in some areas.
+32                                                                                                                                              TipRanks' analyst ranking service pinpoints Wall Street's best-performing stocks, including Microsoft and Delta Air Lines
+33                                                                                                Researchers warn the hazards of climate change will only get worse, for the planet and the economy. Items as varied as groceries and insurance will get more expensive.
+34 Editor's Note: This article is a reprint. It was originally published January 7, 2024.\n\nThe video above features repeat guest Catherine Austin Fitts, a finance expert, and founder and president of the Solari Report. She's one of the wisest persons out there w…
+35   In a newly expanded version of their book, The Bankers’ New Clothes,&nbsp;Anat Admati and Martin Hellwig demystify banking and expose how current financial regulatory practices enrich bankers while increasing the risk of&nbsp;economic crises and undermining democracy. …
+36   This story was originally published by&nbsp;Slate&nbsp;and&nbsp;is reproduced here as part of the&nbsp;Climate Desk&nbsp;collaboration. If you’re one of the millions of Americans worried about your pocketbooks and the general cost of living, you might have picked up on some good news…
+37                                                                                                                                                                              Banco Central retoma protagonismo em semana repleta de eventos importantes para o mercado
+38                                                                                                                                                                                  In America, home prices are at record highs while hundreds of thousands are homeless.
+39                                      PHILIPPINE monetary authorities will likely keep key interest rates unchanged for a sixth straight meeting this Thursday, analysts said, pointing to the peso's current weakness and minimal risks of inflation breaching target.
+                                                                                                                                                                                                                                                                         url
+1                                                                                                                                                                               https://www.forbes.com/sites/simonmoore/2024/06/23/what-to-expect-from-junes-inflation-data/
+2                                                                                                                                                  https://www.forbes.com/sites/annrutledge/2024/06/23/why-christy-romeros-cv-makes-her-such-a-promising-fdic-chair-nominee/
+3                                                                                                                                                                                                   https://finance.yahoo.com/news/3-best-ways-quickly-reduce-150019679.html
+4  https://tw.stock.yahoo.com/news/%E6%8C%87%E6%95%B8%E5%89%B5%E6%96%B0%E9%AB%98%E6%98%AF%E5%96%9C%E9%82%84%E6%98%AF%E6%86%82-%E7%94%A8%E5%85%B1%E5%90%8C%E5%9F%BA%E9%87%91%E6%8A%95%E8%B3%87%E7%BE%8E%E8%82%A1%E5%85%B6%E5%AF%A6%E6%9B%B4%E5%8B%9D-%E7%B1%8C-022908821.html
+5                                                                                                                                                            https://www.forbes.com/sites/digital-assets/2024/06/23/cross-border-cbdc-focused-project-mbridge-moves-forward/
+6                                                                                                                                                                               https://finance.yahoo.com/personal-finance/cd-rates-today-sunday-june-23-2024-100018873.html
+7                                                                                                                                                                 https://finance.yahoo.com/personal-finance/savings-interest-rates-today-sunday-june-23-2024-100020840.html
+8                                                                                                                                                                                       https://www.businessinsider.com/best-mortgage-refinance-rates-today-sunday-23-2024-6
+9                                                                                                                                                                                                                                      https://biztoc.com/x/f743309ef97fd5f0
+10                                                                                                                                   https://www.cryptoglobe.com/latest/2024/06/bitcoins-future-amid-potential-federal-reserve-rate-cuts-crypto-analyst-lark-davis-explains/
+11                                                                                                                                                                                                                                     https://biztoc.com/x/55c07287c5fbf346
+12                                                                                                                                                                                   https://www.investopedia.com/what-to-expect-in-the-markets-this-week-06-24-2024-8666609
+13                                                                                                                                                                        https://www.aol.com/finance/biden-administration-finalized-controversial-retirement-111700305.html
+14                                                                                                                                                                          https://www.cnbc.com/2024/06/23/trump-debate-preview-biden-economy-faith-freedom-convention.html
+15                                                                                                                                                                                                                                     https://biztoc.com/x/514267ad85ff15df
+16                                                                                                                                                                                                                                     https://biztoc.com/x/3ec71de4338abf54
+17                                                                                                                                                                                                                                     https://biztoc.com/x/d0f1135859cc532f
+18                                                                                                                                           https://finance.yahoo.com/news/feds-favorite-inflation-reading-highlights-last-week-of-q2-what-to-know-this-week-112926807.html
+19                                                                                                                                                         https://www.activistpost.com/2024/06/the-abstract-episode-35-rockefellers-covering-the-earth-with-chemtrails.html
+20                                                                                                                                                   https://www.cryptoglobe.com/latest/2024/06/why-bitcoin-is-not-skyrocketing-right-now-explains-prominent-crypto-analyst/
+21                                                                                                                                                           https://www.portfolio.hu/gazdasag/20240623/eichengreen-az-egyesult-allamok-adossaga-es-az-imf-alomvilaga-693251
+22                                                                                                  https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-befinden-sich-in-laengster-phase-ohne-absturz-seit-dem-jahr-2007_id_260074490.html
+23                                                                                                                          https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-erleben-laengste-anstiegsphase-seit-2007_id_260074490.html
+24                                                                                                          https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-s-p-500-befindet-sich-in-laengster-aufschwung-phase-seit-dem-jahr-2007_id_260074490.html
+25                                                                                            https://www.stltoday.com/news/local/column/tony-messenger/messenger-st-louis-faces-a-double-barreled-legal-attack-on-poverty/article_ccb02c78-2fe5-11ef-910d-b792f77ddf35.html
+26                                                                                                                                                        https://fortune.com/2024/06/23/fed-rate-cuts-outlook-inflation-reports-personal-consumption-expenditures-core-pce/
+27                                                                                                                                                                                https://finance.yahoo.com/news/special-sauce-behind-american-exceptionalism-100000173.html
+28                                                                                                                                           https://fortune.com/2024/06/23/american-exceptionalism-us-economic-outlook-stock-market-forecast-dollar-dominance-europe-china/
+29                                                                                                                                                                             https://financialpost.com/investing/sweet-n-low-where-to-find-value-in-unrated-credit-markets
+30                                                                                                                        https://www.nzherald.co.nz/rotorua-daily-post/business/mark-lister-its-election-debate-time-and-trumps-in-the-box-seat/QYR6PDWDNNC5XI2Z4HSYRNXRJY/
+31                                                                                                                                                                https://www.cnbc.com/2024/06/23/the-top-least-difficult-areas-to-buy-a-home-nbc-news-home-buyer-index.html
+32                                                                                                                                                                    https://www.cnbc.com/2024/06/23/top-wall-street-analysts-recommend-these-stocks-for-the-long-haul.html
+33                                                                                                                                                                                https://www.washingtonpost.com/business/2024/06/23/climate-change-warming-economy-impacts/
+34                                                                                                                                                                           https://articles.mercola.com/sites/articles/archive/2024/06/23/david-webb-the-great-taking.aspx
+35                                                                                                                                                                                         https://blogs.lse.ac.uk/usappblog/2024/06/23/book-review-the-bankers-new-clothes/
+36                                                                                                                                                      https://www.motherjones.com/environment/2024/06/climate-change-is-fueling-an-affordability-crisis-it-may-not-let-up/
+37                                                                                                                         https://valor.globo.com/financas/noticia/2024/06/23/mercados-aguardam-ata-do-copom-relatorio-de-inflacao-ipca-15-e-pce-nos-eua-nesta-semana.ghtml
+38                                                                                                                                                                        https://www.cnn.com/2024/06/23/business/stocks-week-ahead-america-housing-crisis-worsen/index.html
+39                                                                                                                                                             https://www.manilatimes.net/2024/06/24/business/top-business/bangko-sentral-seen-keeping-rates-steady/1952885
                                                                                                                                                                                                                                         urlToImage
 1                                                                                                               https://imageio.forbes.com/specials-images/imageserve/66768d6a4410b6b68b1d928d/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds
 2                                                                                                               https://imageio.forbes.com/specials-images/imageserve/6677ab4903f7185a26bc1630/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds
 3                                                               https://s.yimg.com/ny/api/res/1.2/E6iTZVmaPUmW1JserO1GLQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/gobankingrates_644/28ae7342f7a361c5ec0999d6b40fd269
-4                                                                                                               https://imageio.forbes.com/specials-images/imageserve/6678430529f1c713af711f78/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds
-5                                                    https://s.yimg.com/ny/api/res/1.2/CzWebzZ81o64SLRRvxQ4UQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-04/7d70aad0-f2cc-11ee-a57f-6fb602e47ca5
-6                                                             https://s.yimg.com/ny/api/res/1.2/9jQh0zNUQZCJxa6LWKJgWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-images/2020-01/83572720-411f-11ea-9d72-2748648a96e7
-7                                                                                                                                                                            https://i.insider.com/626bf7cbc8c8ac001941105b?width=1200&amp;format=jpeg
-8                                                                                                                                                                                                                https://biztoc.com/cdn/799/og.png
-9                                                                                                                                                                      https://media.cryptoglobe.com/2023/05/Jerome-Powell-in-May-2023-768x401.jpg
-10                                                                                                                                                                                                  https://biztoc.com/cdn/55c07287c5fbf346_s.webp
-11                                                            https://www.investopedia.com/thmb/c634Yizam1CBK38ePsGgugEn5so=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2089849456-38ca0dba5cb54de781719cc5f00d7c60.jpg
-12                                                                                                                                                                   https://media.zenfs.com/en/aol_moneywise_380/25d2b555539ad9cea8fcfa7091eae862
-13                                                                                https://image.cnbcfm.com/api/v1/image/107430697-17187446972024-06-18t205458z_508410822_rc2wd8aotc28_rtrmadp_0_usa-election-trump.jpeg?v=1718744775&amp;w=1920&amp;h=1080
-14                                                                                                                                                                                                  https://biztoc.com/cdn/514267ad85ff15df_s.webp
-15                                                                                                                                                                                                  https://biztoc.com/cdn/3ec71de4338abf54_s.webp
-16                                                                                                                                                                                                  https://biztoc.com/cdn/d0f1135859cc532f_s.webp
-17                                                   https://s.yimg.com/ny/api/res/1.2/8ifNVFPB21gds_x0tVeuJg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-06/d0dde460-3004-11ef-bfca-1231bab70393
-18                                                                                                                                   https://www.activistpost.com/wp-content/uploads/2024/06/The-Abstract-episode-35-THUMBNAIL-JPEG-1024x580-1.jpg
-19                                                                                                                                                                       https://media.cryptoglobe.com/2022/11/bitcoin-g3fe99bac4_1920-768x509.jpg
-20                                                                                                                                                  https://pcdn.hu/articles/images-xl/f/e/d/federal-reserve-fomc-dollar-dollar-kotveny-657511.jpg
-21     https://p6.focus.de/img/fotos/id_259866379/boersenhaendler.jpg?im=Crop%3D%280%2C32%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=86666af30238757eab44c2e84865bf7c78c3771f8f799c6aff34300fb974b547
+4                                                                                                                                                                         https://media.zenfs.com/ca/cnyes.com.tw/7ca5bd1d05839c38e085ba319b021735
+5                                                                                                               https://imageio.forbes.com/specials-images/imageserve/6678430529f1c713af711f78/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds
+6                                                    https://s.yimg.com/ny/api/res/1.2/CzWebzZ81o64SLRRvxQ4UQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-04/7d70aad0-f2cc-11ee-a57f-6fb602e47ca5
+7                                                             https://s.yimg.com/ny/api/res/1.2/9jQh0zNUQZCJxa6LWKJgWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-images/2020-01/83572720-411f-11ea-9d72-2748648a96e7
+8                                                                                                                                                                            https://i.insider.com/626bf7cbc8c8ac001941105b?width=1200&amp;format=jpeg
+9                                                                                                                                                                                                                https://biztoc.com/cdn/799/og.png
+10                                                                                                                                                                     https://media.cryptoglobe.com/2023/05/Jerome-Powell-in-May-2023-768x401.jpg
+11                                                                                                                                                                                                  https://biztoc.com/cdn/55c07287c5fbf346_s.webp
+12                                                            https://www.investopedia.com/thmb/c634Yizam1CBK38ePsGgugEn5so=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2089849456-38ca0dba5cb54de781719cc5f00d7c60.jpg
+13                                                                                                                                                                   https://media.zenfs.com/en/aol_moneywise_380/25d2b555539ad9cea8fcfa7091eae862
+14                                                                                https://image.cnbcfm.com/api/v1/image/107430697-17187446972024-06-18t205458z_508410822_rc2wd8aotc28_rtrmadp_0_usa-election-trump.jpeg?v=1718744775&amp;w=1920&amp;h=1080
+15                                                                                                                                                                                                  https://biztoc.com/cdn/514267ad85ff15df_s.webp
+16                                                                                                                                                                                                  https://biztoc.com/cdn/3ec71de4338abf54_s.webp
+17                                                                                                                                                                                                  https://biztoc.com/cdn/d0f1135859cc532f_s.webp
+18                                                   https://s.yimg.com/ny/api/res/1.2/8ifNVFPB21gds_x0tVeuJg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-06/d0dde460-3004-11ef-bfca-1231bab70393
+19                                                                                                                                   https://www.activistpost.com/wp-content/uploads/2024/06/The-Abstract-episode-35-THUMBNAIL-JPEG-1024x580-1.jpg
+20                                                                                                                                                                       https://media.cryptoglobe.com/2022/11/bitcoin-g3fe99bac4_1920-768x509.jpg
+21                                                                                                                                                  https://pcdn.hu/articles/images-xl/f/e/d/federal-reserve-fomc-dollar-dollar-kotveny-657511.jpg
 22     https://p6.focus.de/img/fotos/id_259866379/boersenhaendler.jpg?im=Crop%3D%280%2C32%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=86666af30238757eab44c2e84865bf7c78c3771f8f799c6aff34300fb974b547
-23 https://p6.focus.de/img/fotos/id_1153634/warenboerse-chicago.jpg?im=Crop%3D%280%2C366%2C3000%2C1500%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=3cc3ab9c618c673b17d2d301af17657e4f684fa5f095bf76014ce3159fca465f
-24                 https://bloximages.newyork1.vip.townnews.com/stltoday.com/content/tncms/assets/v3/editorial/c/cb/ccb02c78-2fe5-11ef-910d-b792f77ddf35/6675a588b4047.preview.jpg?crop=1710%2C898%2C13%2C58&amp;resize=1200%2C630&amp;order=crop%2Cresize
-25                                                                                                                      https://fortune.com/img-assets/wp-content/uploads/2024/06/GettyImages-2157341091_8edba6-e1719152860102.jpg?resize=1200,600
-26                                                                     https://s.yimg.com/ny/api/res/1.2/kLmUWD5FLskXuxeZC.yRrQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/1c5b76162a4b2fe0341be88770f928be
-27                                                                                                                              https://fortune.com/img-assets/wp-content/uploads/2024/06/GettyImages-157417912-e1719004199236.jpg?resize=1200,600
-28                                                                                                                                              https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/06/nyse-0621-ph.jpg
-29                                                          https://www.nzherald.co.nz/resizer/v2/BNHOLHXDOBCPPI2J2M5IVW5W3U.JPG?auth=5aeef135b407d87fe0b874cf292a68d704307c21fdec16fd507dfbe1ca7fae91&amp;width=1200&amp;height=675&amp;quality=70&amp;smart=true
-30                                                                         https://image.cnbcfm.com/api/v1/image/107430324-1718716456842-gettyimages-1714908642-2022_08_16_estateagent_movingin_wealthyfamily_1635.jpeg?v=1718716482&amp;w=1920&amp;h=1080
-31                                                                                                                https://image.cnbcfm.com/api/v1/image/107418128-1716325455581-gettyimages-2153485310-AFP_34TF72X.jpeg?v=1716325517&amp;w=1920&amp;h=1080
-32                                                                                 https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/FUYBRRHECVAMNEJSAJBXDKZHB4.jpg&amp;w=1440
-33                                                                                                                                                 https://media.mercola.com/ImageServer/Public/2024/January/FB/david-webb-the-great-taking-fb.jpg
-34                                                                                                                                               https://blogsmedia.lse.ac.uk/blogs.dir/58/files/2024/06/Federal-Reserve-Washington-DC_feature.jpg
-35                                                                                                                                  https://www.motherjones.com/wp-content/uploads/2024/06/California-Wildfires-20240615-1.jpg?w=1200&amp;h=630&amp;crop=1
-36                    https://s2-valor.glbimg.com/Pnlqsa2c3xQvVoHFdxDY7X794-4=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2021/o/Y/1sY7TtS76KQlhhSJWpBw/banco-central.jpg
-37                                                                                                                                          https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2157834392-copy.jpg?c=16x9&amp;q=w_800,c_fill
-38                                                                                                                                                                    https://www.manilatimes.net/manilatimes/uploads/images/2024/06/23/364231.jpg
+23     https://p6.focus.de/img/fotos/id_259866379/boersenhaendler.jpg?im=Crop%3D%280%2C32%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=86666af30238757eab44c2e84865bf7c78c3771f8f799c6aff34300fb974b547
+24 https://p6.focus.de/img/fotos/id_1153634/warenboerse-chicago.jpg?im=Crop%3D%280%2C366%2C3000%2C1500%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=3cc3ab9c618c673b17d2d301af17657e4f684fa5f095bf76014ce3159fca465f
+25                 https://bloximages.newyork1.vip.townnews.com/stltoday.com/content/tncms/assets/v3/editorial/c/cb/ccb02c78-2fe5-11ef-910d-b792f77ddf35/6675a588b4047.preview.jpg?crop=1710%2C898%2C13%2C58&amp;resize=1200%2C630&amp;order=crop%2Cresize
+26                                                                                                                      https://fortune.com/img-assets/wp-content/uploads/2024/06/GettyImages-2157341091_8edba6-e1719152860102.jpg?resize=1200,600
+27                                                                     https://s.yimg.com/ny/api/res/1.2/kLmUWD5FLskXuxeZC.yRrQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/1c5b76162a4b2fe0341be88770f928be
+28                                                                                                                              https://fortune.com/img-assets/wp-content/uploads/2024/06/GettyImages-157417912-e1719004199236.jpg?resize=1200,600
+29                                                                                                                                              https://smartcdn.gprod.postmedia.digital/financialpost/wp-content/uploads/2024/06/nyse-0621-ph.jpg
+30                                                          https://www.nzherald.co.nz/resizer/v2/BNHOLHXDOBCPPI2J2M5IVW5W3U.JPG?auth=5aeef135b407d87fe0b874cf292a68d704307c21fdec16fd507dfbe1ca7fae91&amp;width=1200&amp;height=675&amp;quality=70&amp;smart=true
+31                                                                         https://image.cnbcfm.com/api/v1/image/107430324-1718716456842-gettyimages-1714908642-2022_08_16_estateagent_movingin_wealthyfamily_1635.jpeg?v=1718716482&amp;w=1920&amp;h=1080
+32                                                                                                                https://image.cnbcfm.com/api/v1/image/107418128-1716325455581-gettyimages-2153485310-AFP_34TF72X.jpeg?v=1716325517&amp;w=1920&amp;h=1080
+33                                                                                 https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/FUYBRRHECVAMNEJSAJBXDKZHB4.jpg&amp;w=1440
+34                                                                                                                                                 https://media.mercola.com/ImageServer/Public/2024/January/FB/david-webb-the-great-taking-fb.jpg
+35                                                                                                                                               https://blogsmedia.lse.ac.uk/blogs.dir/58/files/2024/06/Federal-Reserve-Washington-DC_feature.jpg
+36                                                                                                                                  https://www.motherjones.com/wp-content/uploads/2024/06/California-Wildfires-20240615-1.jpg?w=1200&amp;h=630&amp;crop=1
+37                    https://s2-valor.glbimg.com/Pnlqsa2c3xQvVoHFdxDY7X794-4=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2021/o/Y/1sY7TtS76KQlhhSJWpBw/banco-central.jpg
+38                                                                                                                                          https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2157834392-copy.jpg?c=16x9&amp;q=w_800,c_fill
+39                                                                                                                                                                    https://www.manilatimes.net/manilatimes/uploads/images/2024/06/23/364231.jpg
             publishedAt
 1  2024-06-23T10:51:44Z
 2  2024-06-23T05:07:18Z
 3  2024-06-23T15:00:19Z
-4  2024-06-23T15:47:47Z
-5  2024-06-23T10:00:18Z
-6  2024-06-23T10:00:20Z
-7  2024-06-23T10:00:02Z
-8  2024-06-23T00:17:46Z
-9  2024-06-23T02:02:17Z
-10 2024-06-23T01:01:52Z
-11 2024-06-23T12:00:00Z
-12 2024-06-23T11:17:00Z
-13 2024-06-23T11:33:00Z
-14 2024-06-23T06:32:25Z
-15 2024-06-23T15:10:07Z
-16 2024-06-23T07:38:27Z
-17 2024-06-23T11:29:26Z
-18 2024-06-23T15:48:21Z
-19 2024-06-23T05:53:24Z
-20 2024-06-23T08:30:00Z
-21 2024-06-23T07:04:04Z
+4  2024-06-23T18:29:08Z
+5  2024-06-23T15:47:47Z
+6  2024-06-23T10:00:18Z
+7  2024-06-23T10:00:20Z
+8  2024-06-23T10:00:02Z
+9  2024-06-23T00:17:46Z
+10 2024-06-23T02:02:17Z
+11 2024-06-23T01:01:52Z
+12 2024-06-23T12:00:00Z
+13 2024-06-23T11:17:00Z
+14 2024-06-23T11:33:00Z
+15 2024-06-23T06:32:25Z
+16 2024-06-23T15:10:07Z
+17 2024-06-23T07:38:27Z
+18 2024-06-23T11:29:26Z
+19 2024-06-23T15:48:21Z
+20 2024-06-23T05:53:24Z
+21 2024-06-23T08:30:00Z
 22 2024-06-23T07:04:04Z
 23 2024-06-23T07:04:04Z
-24 2024-06-23T11:00:00Z
-25 2024-06-23T14:40:15Z
-26 2024-06-23T10:00:00Z
+24 2024-06-23T07:04:04Z
+25 2024-06-23T11:00:00Z
+26 2024-06-23T14:40:15Z
 27 2024-06-23T10:00:00Z
-28 2024-06-23T13:00:13Z
-29 2024-06-23T16:00:00Z
-30 2024-06-23T13:00:01Z
-31 2024-06-23T13:16:28Z
-32 2024-06-23T10:05:00Z
-33 2024-06-23T00:00:00Z
-34 2024-06-23T11:30:44Z
-35 2024-06-23T10:00:00Z
-36 2024-06-23T13:56:50Z
-37 2024-06-23T11:43:35Z
-38 2024-06-23T16:53:22Z
-                                                                                                                                                                                                                      content
-1      Jerome Powell, chairman of the US Federal Reserve, during a news conference following a Federal Open ... [+] Market Committee (FOMC) meeting in Washington, DC, US, on Wednesday, June 12, 2024. Federa… [+3786 chars]
-2      Last month the full Senate Banking Committee convened on financial regulatory accountability and stability. The dialogue coalesced over Federal Deposit Insurance Corporation chair Martin Gruenbergs f… [+5604 chars]
-3    Liubomyr Vorona / iStock.com\r\nIn most cases, debt isnt good. It eats a hole in your wallet and creates a continuous drain on your finances. The bad news is that U.S. household debt has never been hig… [+2169 chars]
-4      Agustin Carstens, general manager of the Bank for International Settlements, speaks at the HKMA-BIS ... [+] High-Level Conference in Hong Kong, China, on Tuesday, Nov. 28, 2023. Photographer: Anthony… [+6292 chars]
-5      Todays certificate of deposit (CD) interest rates are some of the highest weve seen in more than a decade thanks to several rate hikes by the Federal Reserve. Still, CD rates vary widely across finan… [+3233 chars]
-6      Todays savings account interest rates are some of the highest weve seen in more than a decade due to several rate hikes by the Federal Reserve. Even so, savings interest rates vary widely by bank, so… [+2530 chars]
-7      Affiliate links for the products on this page are from partners that compensate us (see our advertiser disclosure with our list of partners for more details). However, our opinions are our own. See h… [+6806 chars]
-8       Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial TimesRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will pl… [+127 chars]
-9      In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoins price when the Federal Reserve eventually cuts int… [+3903 chars]
-10      US regulators are flagging JPMorgan Chase, Bank of America, Citibank and Goldman Sachs over the banks contingency plans for trillions of dollars in derivatives.The Federal Reserve and Federal Deposit… [+132 chars]
-11     &lt;ul&gt;&lt;li&gt;The Federal Reserve's preferred measure of inflation, the Personal Consumption Expenditures (PCE) index, will be released Friday. The inflation data and a slew of other indicators during the … [+4561 chars]
-12   The Biden administration finalized a controversial new retirement rule here are 3 key things you need to know now\r\nWe adhere to strict standards of editorial integrity to help you make decisions with… [+4787 chars]
-13     Former President Donald Trump on Saturday gave a brief glimpse of the ammunition he is loading up against President Joe Biden's handling of the economy ahead of the first presidential debate next wee… [+2986 chars]
-14      More U.S. companies are about to flip the on switch when it comes to automating tasks with artificial intelligence.According to a survey of CFOs by Duke Universitys Fuqua School of Business and the F… [+132 chars]
-15      Kristina Hooper, chief global market strategist at Invesco, talks with Financial Posts Larysa Harapyn about how markets and economies might react as central banks start cutting interest rates. She al… [+137 chars]
-16      The Federal Reserve may cut interest rates in July to prevent a recession.Weakening labor- and housing-market data top the list of concerns over tight financial conditions.Markets are only pricing in… [+140 chars]
-17     The final trading week of the month, the quarter, and the first half of 2024 will greet investors with a key inflation reading, a light smattering of corporate results, and a rush to superlatives to … [+8253 chars]
-18  By Peter A. Kirby\r\nIn large part, the history of the Rockefeller family is the history of todays chemtrail spraying operations referred to here as the New Manhattan Project. The two are so intertwine… [+11581 chars]
-19     In a recent video, Toby Cunningham, co-host of the Crypto Tips YouTube channel, discusses why Bitcoin has been hovering around the mid $65,000 range. Cunningham explains that this crabbing phase, whe… [+2142 chars]
-20     Az IMF ezen következtetése az infláció, a GDP-növekedés, a kamatok és a költségvetési hiány alakulására vonatkozó konszenzusos feltételezéseket tükrözi. Természetesen hazárdírozás lenne megkísérelni,… [+6049 chars]
-21     Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln… [+2298 chars]
-22     Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln… [+2298 chars]
-23     Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln… [+2298 chars]
-24     St. Louis Mayor Tishaura O. Jones, right, speaks as Treasurer Adam Layne, left, and Collector of Revenue Gregory F.X. Daly, center, watch during a press conference Monday, June 17, 2024, at City Hall… [+5319 chars]
-25     The Federal Reserves favored inflation yardsticks are poised to show the tamest monthly advances since late last year a stepping stone for officials to begin lowering interest rates, possibly as soon… [+7976 chars]
-26    When people hear the term American exceptionalism, they tend to think of a jingoistic expression dished out by crass pundits who see the United States culture, morals, or broader position in the worl… [+18951 chars]
-27    When people hear the term American exceptionalism, they tend to think of a jingoistic expression dished out by crass pundits who see the United States culture, morals, or broader position in the worl… [+18222 chars]
-28   The next five years hold immense potential for investing in stressed and distressed credits\r\nWhile it seems that we are at a juncture where a market pullback may be imminent, small-to-mid-sized firms… [+6411 chars]
-29 OPINION\r\nWere five months out from the US presidential election and the campaign is set to heat up this week.\r\nUS President Joe Biden and former US president DonaldTrump will face off in the first pr… [+3955 chars]
-30   There are areas in the U.S. that are considered to be the least difficult places to buy a home, according to a new real estate indicator.\r\nWhen the counties are sorted by index rank, Iroquois County,… [+5793 chars]
-31     The debate over when the Federal Reserve will start to lower interest rates, and the persistence of the artificial intelligence frenzy, are the two key factors that have been influencing the U.S. sto… [+5316 chars]
-32    No one in r/Costco the Reddit group dedicated to the beloved bulk store could get over it. The hefty, store-brand olive oil bottles they had been purchasing for years, the ones they all agreed were t… [+11473 chars]
-33   Mercola proudly supports these charities and organizations. View All \r\nDisclaimer: The entire contents of this website are based upon the opinions of Dr. Mercola, unless otherwise noted. Individual a… [+1007 chars]
-34     In a newly expanded version of their book,The Bankers’ New Clothes,&nbsp;Anat Admati andMartin Hellwig demystify banking and expose how current financial regulatory practices enrich bankers while increasi… [+9037 chars]
-35 Ventura County Fire Department/ZUMA \r\nThis story was originally published by&nbsp;Slate&nbsp;and&nbsp;is reproduced here as part of the&nbsp;Climate Desk&nbsp;collaboration.\r\nIf youre one of the millions of Americans worried… [+7228 chars]
-36     A semana é recheada de eventos importantes para o futuro da política monetária no curto prazo e que podem desencadear volatilidade nos preços dos ativos financeiros. O Banco Central divulga a ata de … [+2483 chars]
-37     A version of this story first appeared in CNN Business Before the Bell newsletter. Not a subscriber? You can sign up&nbsp;right here. You can listen to an audio version of the newsletter by clicking the s… [+5229 chars]
-38     PHILIPPINE monetary authorities will likely keep key interest rates unchanged for a sixth straight meeting this Thursday, analysts said, pointing to the peso's current weakness and minimal risks of i… [+5026 chars]</code></pre>
+28 2024-06-23T10:00:00Z
+29 2024-06-23T13:00:13Z
+30 2024-06-23T16:00:00Z
+31 2024-06-23T13:00:01Z
+32 2024-06-23T13:16:28Z
+33 2024-06-23T10:05:00Z
+34 2024-06-23T00:00:00Z
+35 2024-06-23T11:30:44Z
+36 2024-06-23T10:00:00Z
+37 2024-06-23T13:56:50Z
+38 2024-06-23T11:43:35Z
+39 2024-06-23T16:53:22Z
+                                                                                                                                                                                                                        content
+1        Jerome Powell, chairman of the US Federal Reserve, during a news conference following a Federal Open ... [+] Market Committee (FOMC) meeting in Washington, DC, US, on Wednesday, June 12, 2024. Federa… [+3786 chars]
+2        Last month the full Senate Banking Committee convened on financial regulatory accountability and stability. The dialogue coalesced over Federal Deposit Insurance Corporation chair Martin Gruenbergs f… [+5604 chars]
+3      Liubomyr Vorona / iStock.com\r\nIn most cases, debt isnt good. It eats a hole in your wallet and creates a continuous drain on your finances. The bad news is that U.S. household debt has never been hig… [+2169 chars]
+4  ETF S&amp;amp;P 500 \r\n () 2005 S&amp;amp;P 500 2014 2020 \r\nGDP GDP GDP S&amp;amp;P 500 () 1980 2020 4 ()\r\nCompustat, FactSet, Federal Reserve, Refinitiv Datastream, - 2024.3.31.\r\n 7 2023 EPS 31%2024 25% EPS 2023… [+74 chars]
+5        Agustin Carstens, general manager of the Bank for International Settlements, speaks at the HKMA-BIS ... [+] High-Level Conference in Hong Kong, China, on Tuesday, Nov. 28, 2023. Photographer: Anthony… [+6292 chars]
+6        Todays certificate of deposit (CD) interest rates are some of the highest weve seen in more than a decade thanks to several rate hikes by the Federal Reserve. Still, CD rates vary widely across finan… [+3233 chars]
+7        Todays savings account interest rates are some of the highest weve seen in more than a decade due to several rate hikes by the Federal Reserve. Even so, savings interest rates vary widely by bank, so… [+2530 chars]
+8        Affiliate links for the products on this page are from partners that compensate us (see our advertiser disclosure with our list of partners for more details). However, our opinions are our own. See h… [+6806 chars]
+9         Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial TimesRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will pl… [+127 chars]
+10       In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoins price when the Federal Reserve eventually cuts int… [+3903 chars]
+11        US regulators are flagging JPMorgan Chase, Bank of America, Citibank and Goldman Sachs over the banks contingency plans for trillions of dollars in derivatives.The Federal Reserve and Federal Deposit… [+132 chars]
+12       &lt;ul&gt;&lt;li&gt;The Federal Reserve's preferred measure of inflation, the Personal Consumption Expenditures (PCE) index, will be released Friday. The inflation data and a slew of other indicators during the … [+4561 chars]
+13     The Biden administration finalized a controversial new retirement rule here are 3 key things you need to know now\r\nWe adhere to strict standards of editorial integrity to help you make decisions with… [+4787 chars]
+14       Former President Donald Trump on Saturday gave a brief glimpse of the ammunition he is loading up against President Joe Biden's handling of the economy ahead of the first presidential debate next wee… [+2986 chars]
+15        More U.S. companies are about to flip the on switch when it comes to automating tasks with artificial intelligence.According to a survey of CFOs by Duke Universitys Fuqua School of Business and the F… [+132 chars]
+16        Kristina Hooper, chief global market strategist at Invesco, talks with Financial Posts Larysa Harapyn about how markets and economies might react as central banks start cutting interest rates. She al… [+137 chars]
+17        The Federal Reserve may cut interest rates in July to prevent a recession.Weakening labor- and housing-market data top the list of concerns over tight financial conditions.Markets are only pricing in… [+140 chars]
+18       The final trading week of the month, the quarter, and the first half of 2024 will greet investors with a key inflation reading, a light smattering of corporate results, and a rush to superlatives to … [+8253 chars]
+19    By Peter A. Kirby\r\nIn large part, the history of the Rockefeller family is the history of todays chemtrail spraying operations referred to here as the New Manhattan Project. The two are so intertwine… [+11581 chars]
+20       In a recent video, Toby Cunningham, co-host of the Crypto Tips YouTube channel, discusses why Bitcoin has been hovering around the mid $65,000 range. Cunningham explains that this crabbing phase, whe… [+2142 chars]
+21       Az IMF ezen következtetése az infláció, a GDP-növekedés, a kamatok és a költségvetési hiány alakulására vonatkozó konszenzusos feltételezéseket tükrözi. Természetesen hazárdírozás lenne megkísérelni,… [+6049 chars]
+22       Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln… [+2298 chars]
+23       Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln… [+2298 chars]
+24       Die Börsen erleben aktuell die längste Phase ohne zweiprozentigen Ausverkauf seit der Finanzkrise. Die ereignete sich im Jahr 2007. Künstliche Intelligenz und mögliche Zinssenkungen der Fed beflügeln… [+2298 chars]
+25       St. Louis Mayor Tishaura O. Jones, right, speaks as Treasurer Adam Layne, left, and Collector of Revenue Gregory F.X. Daly, center, watch during a press conference Monday, June 17, 2024, at City Hall… [+5319 chars]
+26       The Federal Reserves favored inflation yardsticks are poised to show the tamest monthly advances since late last year a stepping stone for officials to begin lowering interest rates, possibly as soon… [+7976 chars]
+27      When people hear the term American exceptionalism, they tend to think of a jingoistic expression dished out by crass pundits who see the United States culture, morals, or broader position in the worl… [+18951 chars]
+28      When people hear the term American exceptionalism, they tend to think of a jingoistic expression dished out by crass pundits who see the United States culture, morals, or broader position in the worl… [+18222 chars]
+29     The next five years hold immense potential for investing in stressed and distressed credits\r\nWhile it seems that we are at a juncture where a market pullback may be imminent, small-to-mid-sized firms… [+6411 chars]
+30   OPINION\r\nWere five months out from the US presidential election and the campaign is set to heat up this week.\r\nUS President Joe Biden and former US president DonaldTrump will face off in the first pr… [+3955 chars]
+31     There are areas in the U.S. that are considered to be the least difficult places to buy a home, according to a new real estate indicator.\r\nWhen the counties are sorted by index rank, Iroquois County,… [+5793 chars]
+32       The debate over when the Federal Reserve will start to lower interest rates, and the persistence of the artificial intelligence frenzy, are the two key factors that have been influencing the U.S. sto… [+5316 chars]
+33      No one in r/Costco the Reddit group dedicated to the beloved bulk store could get over it. The hefty, store-brand olive oil bottles they had been purchasing for years, the ones they all agreed were t… [+11473 chars]
+34     Mercola proudly supports these charities and organizations. View All \r\nDisclaimer: The entire contents of this website are based upon the opinions of Dr. Mercola, unless otherwise noted. Individual a… [+1007 chars]
+35       In a newly expanded version of their book,The Bankers’ New Clothes,&nbsp;Anat Admati andMartin Hellwig demystify banking and expose how current financial regulatory practices enrich bankers while increasi… [+9037 chars]
+36   Ventura County Fire Department/ZUMA \r\nThis story was originally published by&nbsp;Slate&nbsp;and&nbsp;is reproduced here as part of the&nbsp;Climate Desk&nbsp;collaboration.\r\nIf youre one of the millions of Americans worried… [+7228 chars]
+37       A semana é recheada de eventos importantes para o futuro da política monetária no curto prazo e que podem desencadear volatilidade nos preços dos ativos financeiros. O Banco Central divulga a ata de … [+2483 chars]
+38       A version of this story first appeared in CNN Business Before the Bell newsletter. Not a subscriber? You can sign up&nbsp;right here. You can listen to an audio version of the newsletter by clicking the s… [+5229 chars]
+39       PHILIPPINE monetary authorities will likely keep key interest rates unchanged for a sixth straight meeting this Thursday, analysts said, pointing to the peso's current weakness and minimal risks of i… [+5026 chars]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co">#here, I supplied subject_query="quantitative%20tightening", time_period= "2024-06-10", api_key="0eca322394b24a1786944625148c3767" </span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">query_API</span>(<span class="st">"quantitative%20tightening"</span>, <span class="st">"2024-06-10"</span>, <span class="st">"0eca322394b24a1786944625148c3767"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1060,8 +1068,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28               &lt;NA&gt;           Marketscreener.com
 29               &lt;NA&gt;                GlobeNewswire
 30               &lt;NA&gt;                 BusinessLine
-31               &lt;NA&gt;                Investing.com
-32               &lt;NA&gt;           Marketscreener.com
+31               &lt;NA&gt;           Marketscreener.com
+32               &lt;NA&gt;                Investing.com
 33               &lt;NA&gt;           Marketscreener.com
 34               &lt;NA&gt;           Marketscreener.com
 35               &lt;NA&gt;                Investing.com
@@ -1126,8 +1134,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                                                                                                                            &lt;NA&gt;
 29                                                                                                                                                                          SPHERICAL INSIGHTS LLP
 30                                                                                                                                                                                            &lt;NA&gt;
-31                                                                                                                                                                                         Reuters
-32                                                                                                                                                                                            &lt;NA&gt;
+31                                                                                                                                                                                            &lt;NA&gt;
+32                                                                                                                                                                                         Reuters
 33                                                                                                                                                                                            &lt;NA&gt;
 34                                                                                                                                                                                            &lt;NA&gt;
 35                                                                                                                                                                                         Reuters
@@ -1192,8 +1200,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                                                      Bank of Canada reviewing extraordinary actions taken during pandemic
 29                                                                                                     Global Skin Tightening Market Size To Exceed USD 5.2 Billion By 2033 | CAGR Of 14.02%
 30                                                                                                                                                               Editorial. Fed’s flip-flops
-31                                                                                                                       BOJ deputy governor Uchida signals readiness to raise rates further
-32                                                                                                                                   China's yuan falls, tracks yen slide after BOJ decision
+31                                                                                                                                   China's yuan falls, tracks yen slide after BOJ decision
+32                                                                                                                       BOJ deputy governor Uchida signals readiness to raise rates further
 33                                                                                                                                      JGB yields track US peers higher; BOJ decision looms
 34                                                                                                                              JGB yields track US peers higher; BOJ policy concerns remain
 35                                                                                                                   Economists remain split on timing of BOJ's next rate hike: Reuters poll
@@ -1204,8 +1212,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                              Bank of Japan to keep ultra-low rates, may signal bond taper
 41                                                                                                                                    Morning Bid: Dollar backed by dove with sharpest claws
 42                                                                                                                      The Growing Risk of Spillovers and Spillbacks in the Bank‑NBFI Nexus
-43                                                                                                                              BOJ to keep ultra-low rates, debate fate of huge bond buying
-44                                                                                                                 BOJ to forgo July rate hike, taper $152 bln per year, says ex-policymaker
+43                                                                                                                 BOJ to forgo July rate hike, taper $152 bln per year, says ex-policymaker
+44                                                                                                                              BOJ to keep ultra-low rates, debate fate of huge bond buying
 45                                                                                                                                     Bank of Japan to trim bond buying, keeps rates steady
 46                                                                                                                              BOJ to keep ultra-low rates, debate fate of huge bond buying
 47                                                                                                                               Asian markets, yen drop ahead of key Bank of Japan decision
@@ -1258,8 +1266,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28   (marketscreener.com) The Bank of Canada is reviewing\nthe extraordinary actions it took during the pandemic to\nstimulate the economy, in an effort to be better prepared for a\nfuture crisis, a top executive said on Thursday.\n The BoC, like several of its counte…
 29       The Global Skin Tightening Market Size was Valued at USD 1.4 Billion in 2023 and the Worldwide Skin Tightening Market Size is Expected to Reach USD 5.2 Billion by 2033, according to a research report published by Spherical Insights &amp; Consulting. Companies cov…
 30                                                                                                                                                                                                                     US Fed’s indecision poses challenges for central banks
-31                                                                                                                                                                                                        BOJ deputy governor Uchida signals readiness to raise rates further
-32   (marketscreener.com) China's yuan slipped to\nnear seven-month lows on Friday, in line with the yen's losses\nafter the Bank of Japan decided to keep its easy monetary\nsettings unchanged in its latest policy review.\n The yen's weakness has been weighing down As…
+31   (marketscreener.com) China's yuan slipped to\nnear seven-month lows on Friday, in line with the yen's losses\nafter the Bank of Japan decided to keep its easy monetary\nsettings unchanged in its latest policy review.\n The yen's weakness has been weighing down As…
+32                                                                                                                                                                                                        BOJ deputy governor Uchida signals readiness to raise rates further
 33   (marketscreener.com) Japanese government bond\nyields rose sharply on Monday, tracking a jump in Treasury\nyields after robust U.S. labour market data knocked back bets\nfor Federal Reserve interest rate cuts.\n Japanese yields were also supported by speculation …
 34   (marketscreener.com) Japanese government bond\n yields rose on Tuesday, tracking strength in their U.S.\npeers, while investors remained cautious regarding Japan's\nmonetary policy outlook and the central bank's tapering plans.\n The 10-year JGB yield edged up 1 …
 35                                                                                                                                                                                                    Economists remain split on timing of BOJ's next rate hike: Reuters poll
@@ -1270,8 +1278,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                                                                                                               Bank of Japan to keep ultra-low rates, may signal bond taper
 41                                                                                                                                                                                                                     Morning Bid: Dollar backed by dove with sharpest claws
 42       Nonbank financial institutions (NBFIs) are growing, but banks support that growth via funding and liquidity insurance. The transformation of activities and risks from banks to a bank-NBFI nexus may have benefits in normal states of the world, as it may result…
-43  (marketscreener.com) The Bank of Japan is expected\nto keep interest rates steady on this week and consider whether\nto offer clearer guidance on how it plans to reduce its huge\nbalance sheet, in a slow but steady retreat from its massive\nmonetary stimulus.\n Po…
-44  (marketscreener.com) The Bank of Japan is likely\nto trim bond buying by around 24 trillion yen \nannually in new guidance due next month, but forgo raising\ninterest rates at least until September, former board member\nMakoto Sakurai said on Monday.\n At its poli…
+43  (marketscreener.com) The Bank of Japan is likely\nto trim bond buying by around 24 trillion yen \nannually in new guidance due next month, but forgo raising\ninterest rates at least until September, former board member\nMakoto Sakurai said on Monday.\n At its poli…
+44  (marketscreener.com) The Bank of Japan is expected\nto keep interest rates steady on this week and consider whether\nto offer clearer guidance on how it plans to reduce its huge\nbalance sheet, in a slow but steady retreat from its massive\nmonetary stimulus.\n Po…
 45  (marketscreener.com) The Bank of Japan kept\nultra-low interest rates on Friday but decided to start trimming\nits huge bond purchases in a slow but steady retreat from its\nmassive monetary stimulus.\n While it will continue to buy government bonds at the\ncurren…
 46                                                                                                                                                                                                               BOJ to keep ultra-low rates, debate fate of huge bond buying
 47       Asian markets and the yen weakened against the dollar Friday ahead of a policy decision by the Bank of Japan, while the euro remained under pressure as critical French parliamentary elections approach. Regional investors are trading cautiously, even after a s…
@@ -1324,8 +1332,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                         https://www.marketscreener.com/quote/currency/US-DOLLAR-CANADIAN-DOLLAR-2359031/news/Bank-of-Canada-reviewing-extraordinary-actions-taken-during-pandemic-46967526/
 29                                                                                                  https://www.globenewswire.com/news-release/2024/06/10/2895875/0/en/Global-Skin-Tightening-Market-Size-To-Exceed-USD-5-2-Billion-By-2033-CAGR-Of-14-02.html
 30                                                                                                                                                                  https://www.thehindubusinessline.com/opinion/editorial/feds-flip-flops/article68296310.ece
-31                                                                                                                                     https://www.investing.com/news/economy-news/boj-deputy-governor-uchida-signals-readiness-to-raise-rates-further-3491417
-32                                                                                                          https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/China-s-yuan-falls-tracks-yen-slide-after-BOJ-decision-46972071/
+31                                                                                                          https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/China-s-yuan-falls-tracks-yen-slide-after-BOJ-decision-46972071/
+32                                                                                                                                     https://www.investing.com/news/economy-news/boj-deputy-governor-uchida-signals-readiness-to-raise-rates-further-3491417
 33                                                                                                                                                    https://www.marketscreener.com/news/latest/JGB-yields-track-US-peers-higher-BOJ-decision-looms-46936777/
 34                                                                                                                                            https://www.marketscreener.com/news/latest/JGB-yields-track-US-peers-higher-BOJ-policy-concerns-remain-46989774/
 35                                                                                                                                   https://www.investing.com/news/economy-news/economists-remain-split-on-timing-of-bojs-next-rate-hike-reuters-poll-3486131
@@ -1336,8 +1344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                                              https://www.investing.com/news/economy-news/bank-of-japan-to-keep-ultralow-rates-may-signal-bond-taper-3484117
 41                                                                                                                                                   https://www.investing.com/news/economy-news/morning-bid-dollar-backed-by-dove-with-sharpest-claws-3491358
 42                                                                                                                                 https://libertystreeteconomics.newyorkfed.org/2024/06/the-growing-risk-of-spillovers-and-spillbacks-in-the-bank-nbfi-nexus/
-43                                                                                                     https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/BOJ-to-keep-ultra-low-rates-debate-fate-of-huge-bond-buying-46951875/
-44                                                                                                                                 https://www.marketscreener.com/news/latest/BOJ-to-forgo-July-rate-hike-taper-152-bln-per-year-says-ex-policymaker-46983109/
+43                                                                                                                                 https://www.marketscreener.com/news/latest/BOJ-to-forgo-July-rate-hike-taper-152-bln-per-year-says-ex-policymaker-46983109/
+44                                                                                                     https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/BOJ-to-keep-ultra-low-rates-debate-fate-of-huge-bond-buying-46951875/
 45                                                                                                            https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/Bank-of-Japan-to-trim-bond-buying-keeps-rates-steady-46971792/
 46                                                                                                                                              https://www.investing.com/news/economy-news/boj-to-keep-ultralow-rates-debate-fate-of-huge-bond-buying-3480376
 47                                                                                                                                                     https://www.digitaljournal.com/world/asian-markets-yen-drop-ahead-of-key-bank-of-japan-decision/article
@@ -1390,8 +1398,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                                                                             https://www.marketscreener.com/images/reuters/2018-08/2018-08-31T180826Z_1_LYNXNPEE7U1JH-OCABS_RTROPTP_3_CBUSINESS-US-CANADA-RATES-POLL.JPG
 29                                                                                                                                                                                                     https://ml.globenewswire.com/Resource/Download/b27a94e8-407e-46ae-a5c2-47bb2a1c8a2e
 30                                                                                                                                                                                https://bl-i.thgim.com/public/incoming/pz59wn/article68297029.ece/alternates/LANDSCAPE_1200/PO30_Fed.jpg
-31                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_4_800x533_L_1413112066.jpg
-32                                                                                                                                                                        https://www.marketscreener.com/images/reuters/2016-04-29T073711Z_1_LYNXNPEC3S0B7_RTROPTP_2_BOJ-YEN-INVESTORS.JPG
+31                                                                                                                                                                        https://www.marketscreener.com/images/reuters/2016-04-29T073711Z_1_LYNXNPEC3S0B7_RTROPTP_2_BOJ-YEN-INVESTORS.JPG
+32                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_4_800x533_L_1413112066.jpg
 33                                                                                                                                                                                                                            https://www.marketscreener.com/images/twitter_MS_fdblanc.png
 34                                                                                                                                                                                                                             https://www.marketscreener.com/images/twitter_MS_fdnoir.png
 35                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_1_800x533_L_1413124982.jpg
@@ -1402,8 +1410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                                                                                  https://i-invdn-com.investing.com/news/STOCK-EXCHANGE-RUSSIAN-TRADING-SYSTEMS_800x533_L_1414427815.jpg
 41                                                                                                                                                                                                   https://i-invdn-com.investing.com/news/Brazil-Stock-Market_3_800x533_L_1414427437.jpg
 42                                                                                                                                                                           https://libertystreeteconomics.newyorkfed.org/wp-content/uploads/sites/2/2024/06/LSE_NBFI_3_cetorelli_460.jpg
-43                                                                                                                                                                https://www.marketscreener.com/images/reuters/2024-04/2024-04-05T064911Z_1_LYNXNPEK3407O_RTROPTP_3_JAPAN-ECONOMY-BOJ.JPG
-44                                                                                                                                                                                                                            https://www.marketscreener.com/images/twitter_MS_fdblanc.png
+43                                                                                                                                                                                                                            https://www.marketscreener.com/images/twitter_MS_fdblanc.png
+44                                                                                                                                                                https://www.marketscreener.com/images/reuters/2024-04/2024-04-05T064911Z_1_LYNXNPEK3407O_RTROPTP_3_JAPAN-ECONOMY-BOJ.JPG
 45                                                                                                                                                                           https://img.zonebourse.com/reuters/2016-04/2016-04-29T073711Z_1_LYNXNPEC3S0B7_RTROPTP_2_BOJ-YEN-INVESTORS.JPG
 46                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_4_800x533_L_1413112066.jpg
 47                                                                                                                                                                                  https://www.digitaljournal.com/wp-content/uploads/2024/06/62641ea6c858127e3daa80794f93daeaf5118a29.jpg
@@ -1456,8 +1464,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28 2024-06-13T13:35:04Z
 29 2024-06-10T11:00:00Z
 30 2024-06-16T14:56:22Z
-31 2024-06-21T06:50:49Z
-32 2024-06-14T05:07:31Z
+31 2024-06-14T05:07:31Z
+32 2024-06-21T06:50:49Z
 33 2024-06-10T06:23:21Z
 34 2024-06-18T04:24:48Z
 35 2024-06-17T05:36:04Z
@@ -1468,8 +1476,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40 2024-06-13T21:05:53Z
 41 2024-06-21T04:35:39Z
 42 2024-06-17T13:18:36Z
-43 2024-06-11T22:00:00Z
-44 2024-06-17T07:31:02Z
+43 2024-06-17T07:31:02Z
+44 2024-06-11T22:00:00Z
 45 2024-06-14T03:54:58Z
 46 2024-06-11T22:07:20Z
 47 2024-06-14T03:19:59Z
@@ -1522,8 +1530,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28     OTTAWA, June 13 (Reuters) - The Bank of Canada is reviewing\r\nthe extraordinary actions it took during the pandemic to\r\nstimulate the economy, in an effort to be better prepared for a\r\nfuture crisis, … [+1511 chars]
 29          New York, United States , June 10, 2024 (GLOBE NEWSWIRE) -- The&nbsp;Global&nbsp;Skin Tightening Market&nbsp;Size is to Grow from USD 1.4 Billion in 2023 to USD 5.2 Billion by 2033, at a Compound Annual Growth Rate… [+10369 chars]
 30           After adopting a distinctly dovish tone in its last two monetary policy meetings and raising market hopes for an early start to the easing cycle, the US Federal Open Markets Committee (FOMC) pulled b… [+2766 chars]
-31         By Leika Kihara\r\nTOKYO (Reuters) -Bank of Japan Deputy Governor Shinichi Uchida said on Friday the central bank will "adjust the degree of monetary support" if the economy and prices move in line wit… [+1331 chars]
-32     HONG KONG, June 14 (Reuters) - China's yuan slipped to\r\nnear seven-month lows on Friday, in line with the yen's losses\r\nafter the Bank of Japan decided to keep its easy monetary\r\nsettings unchanged i… [+1497 chars]
+31     HONG KONG, June 14 (Reuters) - China's yuan slipped to\r\nnear seven-month lows on Friday, in line with the yen's losses\r\nafter the Bank of Japan decided to keep its easy monetary\r\nsettings unchanged i… [+1497 chars]
+32         By Leika Kihara\r\nTOKYO (Reuters) -Bank of Japan Deputy Governor Shinichi Uchida said on Friday the central bank will "adjust the degree of monetary support" if the economy and prices move in line wit… [+1331 chars]
 33     TOKYO, June 10 (Reuters) - Japanese government bond\r\nyields rose sharply on Monday, tracking a jump in Treasury\r\nyields after robust U.S. labour market data knocked back bets\r\nfor Federal Reserve int… [+1684 chars]
 34     TOKYO, June 18 (Reuters) - Japanese government bond\r\n(JGB) yields rose on Tuesday, tracking strength in their U.S.\r\npeers, while investors remained cautious regarding Japan's\r\nmonetary policy outlook… [+1790 chars]
 35           TOKYO (Reuters) - Economists remain split over the timing of the Bank of Japan's next interest rate hike, according to a new Reuters poll, after the central bank's decision to announce a quantitative… [+1423 chars]
@@ -1534,8 +1542,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40         By Leika Kihara\r\nTOKYO (Reuters) - The Bank of Japan is likely to keep interest rates ultra-low on Friday but consider whether to start reducing its huge balance sheet in a slow but steady retreat fr… [+2649 chars]
 41         A look at the day ahead in European and global markets from Kevin Buckland\r\nKing dollar is exerting its authority to end the week at new heights. The yen, in particular, has been put in its place, si… [+2112 chars]
 42 Viral V. Acharya, Nicola Cetorelli, and Bruce Tuckman\n\n\n\n\n\n\n\n\nNonbank financial institutions (NBFIs) are growing, but banks support that growth via funding and liquidity insurance. The transformation… [+14020 chars]
-43   * BOJ decision expected 0230-0400GMT Friday after 2-day\r\nmeeting\r\n* Board seen keeping short-term policy rate steady at 0-0.1%\r\n* BOJ may slow bond buying, drop clues on future taper plan\r\n* Soft spe… [+3219 chars]
-44 * BOJ seen trimming monthly bond buying by 2 trln yen -\r\nSakurai\r\n* Next rate hike likely won't come until September at\r\nearliest\r\n* BOJ may hike rates to 0.5% by end of 2025\r\n* Weak yen likely drove… [+3239 chars]
+43 * BOJ seen trimming monthly bond buying by 2 trln yen -\r\nSakurai\r\n* Next rate hike likely won't come until September at\r\nearliest\r\n* BOJ may hike rates to 0.5% by end of 2025\r\n* Weak yen likely drove… [+3239 chars]
+44   * BOJ decision expected 0230-0400GMT Friday after 2-day\r\nmeeting\r\n* Board seen keeping short-term policy rate steady at 0-0.1%\r\n* BOJ may slow bond buying, drop clues on future taper plan\r\n* Soft spe… [+3219 chars]
 45   * BOJ keeps short-term rate target unchanged at 0-0.1%\r\n* Board keeps bond buying pace at 6 trln yen per month\r\n* Decides to lay out details on bond-taper plan at July\r\nmeeting\r\n* Governor Ueda expec… [+3205 chars]
 46         By Leika Kihara\r\nTOKYO (Reuters) - The Bank of Japan is expected to keep interest rates steady on this week and consider whether to offer clearer guidance on how it plans to reduce its huge balance s… [+2820 chars]
 47         The Bank of Japan is expected to further tighten monetary policy when it concludes its meeting - Copyright AFP Kazuhiro NOGI\r\nAsian markets and the yen weakened against the dollar Friday ahead of a p… [+4197 chars]

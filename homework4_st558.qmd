@@ -22,7 +22,7 @@ editor_options:
 
 4.  What is a side-effect function?
 
--   A: Side-effects modify some state but don't naturally return the modified argument (df), e.g. print(), write_csv(), etc. 
+-   A: Side-effect function modify some state but don't naturally return the modified argument, such as print(), write_csv(). 
 
 5.  Why can you name a variable sd in a function and not cause any issues with the sd function?
 
