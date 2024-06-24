@@ -226,13 +226,27 @@ URL
 news_return <- httr::GET(URL)
 ```
 
-2. I used str() to see the structure of news_return I then parsed news_return with the data frame news_return$content and checked the structure of it as well. I found that the 3rd element of this list, articles, has the actual article information in it. Therefore, I stored all the information from it into news_articles. 
+2. I used str() to see the structure of news_return I then parsed news_return with the data frame news_return$content and checked the structure of it as well. I found that the 3rd element of this list, articles, has the actual article information in it. Therefore, I stored all the information from it into as a tibble using tidyverse package. 
 
 ```{r}
+library(tidyverse)
+
 str(news_return, max.level = 1)
 parsed_news <- fromJSON(rawToChar((news_return$content)))
-str(parsed_news, max.level = 1)
-news_articles <- parsed_news$articles
+str(parsed_news)
+
+#the first column of parsed_news$articles is a list column
+typeof(parsed_news$articles[,1])
+#this list column contains two element "id" and "name"
+str(parsed_news$articles$source)
+
+news_articles <- as_tibble(parsed_news$articles)
+
+#create new two columns id and name from source and delete the source column
+news_articles <- news_articles |>
+  mutate(id = news_articles$source$id,
+         name = news_articles$source$name) |>
+  select(id, name, everything(), -source)
 news_articles
 ```
 
@@ -241,7 +255,9 @@ news_articles
 ```{r}
 query_API <- function(subject_query, time_period, api_key){
   library(jsonlite)
+  library(tidyverse)
 
+#create a URL to query the API  
   base_URL <- "https://newsapi.org/v2/everything"
   
   URL_code_subject_query <- "?q="
@@ -249,16 +265,22 @@ query_API <- function(subject_query, time_period, api_key){
   URL_code_api_key <- "&apikey="
   
   URL <- paste0(base_URL, URL_code_subject_query, subject_query, URL_code_time_period, time_period, URL_code_api_key, api_key)
-  
+
+#read in and store data with jsonlite and tidyverse packages
   news_return <- httr::GET(URL)
-  
   parsed_news <- fromJSON(rawToChar((news_return$content)))
-  news_articles <- parsed_news$articles
-  return(news_articles)
+  news_articles <- as_tibble(parsed_news$articles)
+
+#construct a new tibble with columns id and name and everything else excluding the source column
+  news_articles <- news_articles |>
+    mutate(id = news_articles$source$id,
+           name = news_articles$source$name) |>
+    select(id, name, everything(), -source)
+  news_articles
 }
 #I then used this function twice with different query subjects and time period to search, but unique api key. 
 #here, I supplied subject_query="federal%20reserve", time_period="2024-06-23", api_key="0eca322394b24a1786944625148c3767" 
-query_API("federal%20reserve", "2024-06-23", "0eca322394b24a1786944625148c3767")
+query_API("federal%20reserve", "2024-05-24", "0eca322394b24a1786944625148c3767")
 #here, I supplied subject_query="quantitative%20tightening", time_period= "2024-06-10", api_key="0eca322394b24a1786944625148c3767" 
 query_API("quantitative%20tightening", "2024-06-10", "0eca322394b24a1786944625148c3767")
 ```
