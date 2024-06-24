@@ -173,8 +173,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#write a function using the RMSE formula with additional argument in mean function to removes the NA values in the computation</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>getRMSE <span class="ot">&lt;-</span> <span class="cf">function</span>(response_vector, prediction_vector, ...){</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sum</span>((response_vector <span class="sc">-</span> prediction_vector)<span class="sc">^</span><span class="dv">2</span>, ...), ...)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>getRMSE <span class="ot">&lt;-</span> <span class="cf">function</span>(resp, pred, ...){</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sum</span>((resp <span class="sc">-</span> pred)<span class="sc">^</span><span class="dv">2</span>, ...), ...)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  RMSE <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mean)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(RMSE)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -225,16 +225,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [97] 0.24900805 0.54060103         NA         NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate respective response and prediction value with x_with_na</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>resp_with_na <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>x_with_na <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pred_with_na <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(resp_with_na <span class="sc">~</span> x_with_na), <span class="fu">data.frame</span>(x_with_na))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#supply the getRMSE function without or with specifying the behavior to delete NA values and test on the response and prediction values with x2 which has two NA values</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#it returns NA when supplying the getRMSE function without specifying na.rm argument</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getRMSE</span>(resp_with_na, pred_with_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>x_with_na <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(resp <span class="sc">~</span> x_with_na), <span class="fu">data.frame</span>(x_with_na))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#supply the getRMSE function without or with specifying the behavior to delete NA values and test on the response and prediction values with x2 which has two NA values</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#it returns NA when supplying the getRMSE function without specifying na.rm argument</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">getRMSE</span>(resp, pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#it returns the calculated value when supplying the getRMSE function with na.rm=TRUE</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getRMSE</span>(resp_with_na, pred_with_na, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getRMSE</span>(resp, pred, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9.285177</code></pre>
 </div>
@@ -243,8 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Write a function called getMAE() that follows the specifications of the getRMSE() function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>getMAE <span class="ot">&lt;-</span> <span class="cf">function</span>(response_vector, prediction_vector, ...){</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  MAE <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sum</span>(<span class="fu">abs</span>(response_vector <span class="sc">-</span> prediction_vector), ...), ...)</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>getMAE <span class="ot">&lt;-</span> <span class="cf">function</span>(resp, pred, ...){</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  MAE <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sum</span>(<span class="fu">abs</span>(resp <span class="sc">-</span> pred), ...), ...)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(MAE)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -294,16 +295,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [97] 0.24900805 0.54060103         NA         NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate respective response and prediction value with x_with_na</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>resp_with_na <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>x_with_na <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pred_with_na <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(resp_with_na <span class="sc">~</span> x_with_na), <span class="fu">data.frame</span>(x_with_na))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>x_with_na <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(resp <span class="sc">~</span> x_with_na), <span class="fu">data.frame</span>(x_with_na))</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#supply the getMAE function without or with specifying the behavior to delete NA values and test on the response and prediction values with x2 which has two NA values</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#it returns NA when supplying the getRMSE function without specifying na.rm argument</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getMAE</span>(resp_with_na, pred_with_na)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getMAE</span>(resp, pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#it returns the calculated value when supplying the getMAE function with na.rm=TRUE</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getMAE</span>(resp_with_na, pred_with_na, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getMAE</span>(resp, pred, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 76.86564</code></pre>
 </div>
@@ -312,18 +313,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create a wrapper function that can be used to get either or both metrics returned with a single function call.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>wrapper <span class="ot">&lt;-</span> <span class="cf">function</span>(response_vector, prediction_vector, metrics, ...){</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.vector</span>(response_vector) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.atomic</span>(response_vector) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.numeric</span>(response_vector) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.vector</span>(prediction_vector) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.atomic</span>(prediction_vector) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.numeric</span>(prediction_vector)) {</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>wrapper <span class="ot">&lt;-</span> <span class="cf">function</span>(resp, pred, metrics, ...){</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.vector</span>(resp) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.atomic</span>(resp) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.numeric</span>(resp) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.vector</span>(pred) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.atomic</span>(pred) <span class="sc">|</span> <span class="sc">!</span><span class="fu">is.numeric</span>(pred)) {</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Not a vector or not atomic or not numeric my friend"</span>)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (metrics <span class="sc">==</span> <span class="st">"RMSE"</span>){</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    RMSE <span class="ot">&lt;-</span> <span class="fu">getRMSE</span>(response_vector, prediction_vector, ...)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    RMSE <span class="ot">&lt;-</span> <span class="fu">getRMSE</span>(resp, pred, ...)</span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(RMSE)</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (metrics <span class="sc">==</span> <span class="st">"MAE"</span>) {</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    MAE <span class="ot">&lt;-</span> <span class="fu">getMAE</span>(response_vector, prediction_vector, ...)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    MAE <span class="ot">&lt;-</span> <span class="fu">getMAE</span>(resp, pred, ...)</span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(MAE)</span>
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (metrics <span class="sc">==</span> <span class="st">"both"</span>){</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    RMSE <span class="ot">&lt;-</span> <span class="fu">getRMSE</span>(response_vector, prediction_vector, ...)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    MAE <span class="ot">&lt;-</span> <span class="fu">getMAE</span>(response_vector, prediction_vector, ...)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    RMSE <span class="ot">&lt;-</span> <span class="fu">getRMSE</span>(resp, pred, ...)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    MAE <span class="ot">&lt;-</span> <span class="fu">getMAE</span>(resp, pred, ...)</span>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(RMSE, MAE))</span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -388,20 +389,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  [97] 0.24900805 0.54060103         NA         NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate respective response and prediction value with x_with_na</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>resp_with_na <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>x_with_na <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pred_with_na <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(resp_with_na <span class="sc">~</span> x_with_na), <span class="fu">data.frame</span>(x_with_na))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>x_with_na <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="fu">lm</span>(resp <span class="sc">~</span> x_with_na), <span class="fu">data.frame</span>(x_with_na))</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co">#call the wrapper function with metrics = "RMSE" without specifying na.rm argument and the output NA is generated</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp_with_na, pred_with_na, <span class="at">metrics =</span> <span class="st">"RMSE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp, pred, <span class="at">metrics =</span> <span class="st">"RMSE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#call the wrapper function with metrics = "MAE" without specifying na.rm argument and the output NA is generated</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp_with_na, pred_with_na, <span class="at">metrics =</span> <span class="st">"MAE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp, pred, <span class="at">metrics =</span> <span class="st">"MAE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#call the wrapper function with metrics = "both" without specifying na.rm argument and the output NA is generated</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp_with_na, pred_with_na, <span class="at">metrics =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp, pred, <span class="at">metrics =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] NA
@@ -410,17 +411,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] NA</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#call the wrapper function with metrics = "RMSE" and the output is generated according to the request</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp_with_na, pred_with_na, <span class="at">metrics =</span> <span class="st">"RMSE"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp, pred, <span class="at">metrics =</span> <span class="st">"RMSE"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9.285177</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#call the wrapper function with metrics = "MAE" and the output is generated according to the request</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp_with_na, pred_with_na, <span class="at">metrics =</span> <span class="st">"MAE"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp, pred, <span class="at">metrics =</span> <span class="st">"MAE"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 76.86564</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#call the wrapper function with metrics = "both" and the output is generated according to the request</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp_with_na, pred_with_na, <span class="at">metrics =</span> <span class="st">"both"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wrapper</span>(resp, pred, <span class="at">metrics =</span> <span class="st">"both"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] 9.285177
@@ -491,8 +492,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ all_headers:List of 1
  $ cookies    :'data.frame':    0 obs. of  7 variables:
  $ content    : raw [1:18216] 7b 22 73 74 ...
- $ date       : POSIXct[1:1], format: "2024-06-24 18:29:35"
- $ times      : Named num [1:6] 0 0.158 0.175 0.224 0.732 ...
+ $ date       : POSIXct[1:1], format: "2024-06-24 18:43:11"
+ $ times      : Named num [1:6] 0 0.0247 0.0598 0.0995 0.301 ...
   ..- attr(*, "names")= chr [1:6] "redirect" "namelookup" "connect" "pretransfer" ...
  $ request    :List of 7
   ..- attr(*, "class")= chr "request"
@@ -560,11 +561,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3                       Inflation schwächer - Schweizerische Nationalbank senkt erneut den Leitzins
 4                                                         What To Expect From June’s Inflation Data
 5                  Pair of Big Bets Stand to Benefit If Odds Rise for Fed Interest-Rate Cut in July
-6                             Carnival Corporation &amp; plc (CCL): Is this Robinhood Stock a Good Buy?
-7                     What Makes Kinder Morgan, Inc. (KMI) a Good Robinhood Stock to Buy Right Now?
-8                          What Makes Analysts Keep a Bullish View on Grab Holdings Limited (GRAB)?
-9  Blue Owl Capital Inc. (OWL): Did Recent Strategic Acquisitions Provide a Bull Case for the Firm?
-10                                    Did Nu Holdings Ltd. (NU) Reach Significant Milestones in Q1?
+6                     What Makes Kinder Morgan, Inc. (KMI) a Good Robinhood Stock to Buy Right Now?
+7                          What Makes Analysts Keep a Bullish View on Grab Holdings Limited (GRAB)?
+8                             Carnival Corporation &amp; plc (CCL): Is this Robinhood Stock a Good Buy?
+9                                     Did Nu Holdings Ltd. (NU) Reach Significant Milestones in Q1?
+10 Blue Owl Capital Inc. (OWL): Did Recent Strategic Acquisitions Provide a Bull Case for the Firm?
 11              Stock market today: S&amp;P 500 and Nasdaq head for new highs as Nvidia rally pushes on
 12                      Inflation schwächer - Schweizerische Nationalbank senkt erneut den Leitzins
 13                 Hot Rodent Boys, Why We Love Them and Why Hollywood’s Male Beauty Standards Suck
@@ -582,11 +583,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3                                                                                                                                          Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.
 4                                                                                                                                                            June's CPI inflation data is expected to lend support to anticipated interest rate cuts in 2024 and beyond.
 5                                                                                                       (Bloomberg) -- A pair of large bets in the fed funds futures market are attracting attention on Wall Street by setting aside the market-implied consensus for...
-6                                                                                                             We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Carnival Corporation &amp; plc...
-7                                                                                                          We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI...
-8                                                                                                                  We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Grab Holdings Limited...
-9                                                                                                       We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL)...
-10                                                                                                             We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU...
+6                                                                                                          We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI...
+7                                                                                                                  We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Grab Holdings Limited...
+8                                                                                                             We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Carnival Corporation &amp; plc...
+9                                                                                                              We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU...
+10                                                                                                      We recently compiled a list of the 10 Best Robinhood Stocks Under $20. In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL)...
 11                                                                                                               Major averages were headed for another all-time high Thursday amid Nvidia's big rally this week. Jobless claims continued to hover near 10-month highs.
 12                                                                                                                                         Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.
 13 The internet loves itself a cute boy. We all like a nice non-threatening screen idol with Film Twitter appeal who also doesn't mind doing underwear ads for our shameless consumption. Every generation gets its sex symbols and the entertainment industry...\nRead…
@@ -604,11 +605,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3                                           https://www.focus.de/finanzen/boerse/inflation-schwaecher-nur-noch-1-25-prozent-schweizerische-nationalbank-senkt-leitzins_id_260067701.html
 4                                                                                           https://www.forbes.com/sites/simonmoore/2024/06/23/what-to-expect-from-junes-inflation-data/
 5                                                                                                              https://finance.yahoo.com/news/pair-big-bets-stand-benefit-160512529.html
-6                                                                                                   https://finance.yahoo.com/news/carnival-corporation-plc-ccl-robinhood-125109423.html
-7                                                                                                              https://finance.yahoo.com/news/makes-kinder-morgan-inc-kmi-122905223.html
-8                                                                                                         https://finance.yahoo.com/news/makes-analysts-keep-bullish-view-023609470.html
-9                                                                                                                 https://finance.yahoo.com/news/blue-owl-capital-inc-owl-114122156.html
-10                                                                                                                  https://finance.yahoo.com/news/did-nu-holdings-ltd-nu-131926564.html
+6                                                                                                              https://finance.yahoo.com/news/makes-kinder-morgan-inc-kmi-122905223.html
+7                                                                                                         https://finance.yahoo.com/news/makes-analysts-keep-bullish-view-023609470.html
+8                                                                                                   https://finance.yahoo.com/news/carnival-corporation-plc-ccl-robinhood-125109423.html
+9                                                                                                                   https://finance.yahoo.com/news/did-nu-holdings-ltd-nu-131926564.html
+10                                                                                                                https://finance.yahoo.com/news/blue-owl-capital-inc-owl-114122156.html
 11                                                             https://markets.businessinsider.com/news/stocks/stock-market-today-sp500-nasdaq-record-highs-nvidia-jobless-claims-2024-6
 12                                           https://www.focus.de/finanzen/boerse/inflation-schwaecher-schweizerische-nationalbank-senkt-den-leitzins-auf-1-25-prozent_id_260067701.html
 13                                             https://www.pajiba.com/celebrities_are_better_than_you/hot-rodent-boys-why-we-love-them-and-why-hollywoods-male-beauty-standards-suck.php
@@ -626,11 +627,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3  https://p6.focus.de/img/fotos/id_24207339/schweiz-und-flagge.jpg?im=Crop%3D%280%2C67%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=5b020d6ca4c47b3eb6e64ea792f1d875e8adbc80a0b9bf1f2b51c599e5244db3
 4                                                                                                             https://imageio.forbes.com/specials-images/imageserve/66768d6a4410b6b68b1d928d/0x0.jpg?format=jpg&amp;height=900&amp;width=1600&amp;fit=bounds
 5                                                                                                                                                              https://media.zenfs.com/en/bloomberg_markets_842/41370f5ede32eb28fee49ab0b238ebf9
-6                                                              https://s.yimg.com/ny/api/res/1.2/vUrdsC1iWmxjPSj6jgZt4g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/66f6dd83cd222d38b1b617434c143fa8
-7                                                              https://s.yimg.com/ny/api/res/1.2/e6W1_0xZyOSq6OhxCm2OUQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/f2815fee8dd87c41e4294d91093397d7
-8                                                              https://s.yimg.com/ny/api/res/1.2/FOL1DgQUZunVccVzIITs1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/eb62ab7daeeb4202fffa4df505d5bd7f
-9                                                              https://s.yimg.com/ny/api/res/1.2/2A._xmKZUfVOgyTCnpogHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/4d15674f00efaabee164f7a24d2a13fa
-10                                                             https://s.yimg.com/ny/api/res/1.2/ZvamXmjdkpmJHtISfGAGVQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/3e6737a09ed1e20ab44c649751392f5b
+6                                                              https://s.yimg.com/ny/api/res/1.2/e6W1_0xZyOSq6OhxCm2OUQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/f2815fee8dd87c41e4294d91093397d7
+7                                                              https://s.yimg.com/ny/api/res/1.2/FOL1DgQUZunVccVzIITs1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/eb62ab7daeeb4202fffa4df505d5bd7f
+8                                                              https://s.yimg.com/ny/api/res/1.2/vUrdsC1iWmxjPSj6jgZt4g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/66f6dd83cd222d38b1b617434c143fa8
+9                                                              https://s.yimg.com/ny/api/res/1.2/ZvamXmjdkpmJHtISfGAGVQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/3e6737a09ed1e20ab44c649751392f5b
+10                                                             https://s.yimg.com/ny/api/res/1.2/2A._xmKZUfVOgyTCnpogHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzM-/https://media.zenfs.com/en/insidermonkey.com/4d15674f00efaabee164f7a24d2a13fa
 11                                                                                                                                                                         https://i.insider.com/66741e30087acd2be9b4fe2f?width=1200&amp;format=jpeg
 12 https://p6.focus.de/img/fotos/id_24207339/schweiz-und-flagge.jpg?im=Crop%3D%280%2C67%2C1600%2C800%29%3BResize%3D%281200%2C627%29&amp;impolicy=perceptual&amp;quality=mediumHigh&amp;hash=5b020d6ca4c47b3eb6e64ea792f1d875e8adbc80a0b9bf1f2b51c599e5244db3
 13                                                                                                                                       https://www.pajiba.com/assets_c/2024/06/Mike%20Faist%20Josh%20OConnor%20Getty-thumb-700xauto-263451.jpg
@@ -648,11 +649,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3  2024-06-20T11:49:11Z
 4  2024-06-23T10:51:44Z
 5  2024-06-20T16:05:12Z
-6  2024-06-22T12:51:09Z
-7  2024-06-22T12:29:05Z
-8  2024-06-22T02:36:09Z
-9  2024-06-22T11:41:22Z
-10 2024-06-22T13:19:26Z
+6  2024-06-22T12:29:05Z
+7  2024-06-22T02:36:09Z
+8  2024-06-22T12:51:09Z
+9  2024-06-22T13:19:26Z
+10 2024-06-22T11:41:22Z
 11 2024-06-20T13:46:27Z
 12 2024-06-20T11:49:11Z
 13 2024-06-20T19:57:33Z
@@ -670,11 +671,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3      Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.Die Schweizerische Nationalbank (SNB) hat laut CNBC am Donnerstag ihren Le… [+1986 chars]
 4      Jerome Powell, chairman of the US Federal Reserve, during a news conference following a Federal Open ... [+] Market Committee (FOMC) meeting in Washington, DC, US, on Wednesday, June 12, 2024. Federa… [+3786 chars]
 5      (Bloomberg) -- A pair of large bets in the fed funds futures market are attracting attention on Wall Street by setting aside the market-implied consensus for the Federal Reserves first interest-rate … [+1539 chars]
-6      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Carnival Corporation &amp;amp; plc (NYSE:CCL) stands against the other Robinho… [+6720 chars]
-7     We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI) stands against the other Robinhood stocks.\r… [+6051 chars]
-8      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Grab Holdings Limited (NASDAQ:GRAB) stands against the other Robinhood sto… [+6600 chars]
-9      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL) stands against the other Robinhood stocks… [+6646 chars]
-10   We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU) stands against the other Robinhood stocks.\r\nThe… [+7661 chars]
+6     We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Kinder Morgan, Inc. (NYSE:KMI) stands against the other Robinhood stocks.\r… [+6051 chars]
+7      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Grab Holdings Limited (NASDAQ:GRAB) stands against the other Robinhood sto… [+6600 chars]
+8      We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Carnival Corporation &amp;amp; plc (NYSE:CCL) stands against the other Robinho… [+6720 chars]
+9    We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Nu Holdings Ltd. (NYSE:NU) stands against the other Robinhood stocks.\r\nThe… [+7661 chars]
+10     We recently compiled a list of the 10 Best Robinhood Stocks Under $20.&nbsp;In this article, we are going to take a look at where Blue Owl Capital Inc. (NYSE:OWL) stands against the other Robinhood stocks… [+6646 chars]
 11   US stock averages rose on Thursday, with the S&amp;amp;P 500 and the Nasdaq on track for another record.\r\nTraders returned from the Juneteenth holiday with Nvidia shares continuing to soar after the comp… [+1963 chars]
 12     Die Schweizerische Nationalbank senkt ihre Leitzinsen zum zweiten Mal in diesem Jahr. Grund dafür ist die sinkende Inflation.Die Schweizerische Nationalbank (SNB) hat laut CNBC am Donnerstag ihren Le… [+1986 chars]
 13     The internet loves itself a cute boy. We all like a nice non-threatening screen idol with Film Twitter appeal who also doesn’t mind doing underwear ads for our shameless consumption. Every generation… [+5255 chars]
@@ -722,8 +723,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6                 &lt;NA&gt; Yahoo Entertainment
 7                 &lt;NA&gt; Yahoo Entertainment
 8     business-insider    Business Insider
-9                 &lt;NA&gt;          Biztoc.com
-10                &lt;NA&gt;         CryptoGlobe
+9                 &lt;NA&gt;         CryptoGlobe
+10                &lt;NA&gt;          Biztoc.com
 11                &lt;NA&gt;          Biztoc.com
 12                &lt;NA&gt;        Investopedia
 13                &lt;NA&gt;                 AOL
@@ -762,8 +763,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6                                                                                                      Casey Bond
 7                                                                                                      Casey Bond
 8                                                                 insider@insider.com (Molly Grace,Sarah Silbert)
-9                                                                                                          ft.com
-10                                                                                                 Siamak Masnavi
+9                                                                                                  Siamak Masnavi
+10                                                                                                         ft.com
 11                                                                                                  dailyhodl.com
 12                                                                                                     Terry Lane
 13                                                                                                      Moneywise
@@ -802,8 +803,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6                                                                                                CD rates today, June 23, 2024 (up to 5.15% APY)
 7                                                                 Savings interest rates today, June 23, 2024 (best accounts offering 5.50% APY)
 8                                                                           Mortgage Interest Rates Today, June 23, 2024 | Rates Remain Under 7%
-9                                                       Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan
-10                                                 Bitcoin’s Future Amid Potential Federal Reserve Rate Cuts: Crypto Analyst Lark Davis Explains
+9                                                  Bitcoin’s Future Amid Potential Federal Reserve Rate Cuts: Crypto Analyst Lark Davis Explains
+10                                                      Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan
 11 JPMorgan Chase, Bank of America and Citibank Flagged for Holding Trillions of Dollars in Derivatives Without Proper Contingency Plans: Report
 12                                                                                                       What To Expect in the Markets This Week
 13                           The Biden administration finalized a controversial new retirement rule — here are 3 key things you need to know now
@@ -842,8 +843,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6                                                                                                                                             If you’re searching for today’s best CD rates, we’ve narrowed down some of the top offers. Learn more about CD rates today.
 7                                                                                                                 If you’re searching for today’s best savings interest rates, we’ve narrowed down some of the top offers. Learn more about savings interest rates today.
 8                                                                                                                         These are today's mortgage and refinance rates. Since early May, rates have remained under 7%, but they likely won't fall much more until 2025.
-9  Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial Times\nRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will plans CNBC\nFed Says Wall Street Giants Have a Shortcoming Blo…
-10   In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoin’s price when the Federal Reserve eventually cuts interest rates? Lark Davis begins by examining the history of …
+9    In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoin’s price when the Federal Reserve eventually cuts interest rates? Lark Davis begins by examining the history of …
+10 Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial Times\nRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will plans CNBC\nFed Says Wall Street Giants Have a Shortcoming Blo…
 11  US regulators are flagging JPMorgan Chase, Bank of America, Citibank and Goldman Sachs over the banks’ contingency plans for trillions of dollars in derivatives.\nThe Federal Reserve and Federal Deposit Insurance Corporation (FDIC) say the lenders’ so-called “…
 12                                                                                                                                              Coming up: PCE inflation, GDP revisions, Nvidia's shareholder meeting, and earnings reports from Micron, FedEx, and Nike.
 13                                                                                                                                                                                                   Important information for anyone seeking retirement planning advice.
@@ -882,8 +883,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6                                                                                                                                                                               https://finance.yahoo.com/personal-finance/cd-rates-today-sunday-june-23-2024-100018873.html
 7                                                                                                                                                                 https://finance.yahoo.com/personal-finance/savings-interest-rates-today-sunday-june-23-2024-100020840.html
 8                                                                                                                                                                                       https://www.businessinsider.com/best-mortgage-refinance-rates-today-sunday-23-2024-6
-9                                                                                                                                                                                                                                      https://biztoc.com/x/f743309ef97fd5f0
-10                                                                                                                                   https://www.cryptoglobe.com/latest/2024/06/bitcoins-future-amid-potential-federal-reserve-rate-cuts-crypto-analyst-lark-davis-explains/
+9                                                                                                                                    https://www.cryptoglobe.com/latest/2024/06/bitcoins-future-amid-potential-federal-reserve-rate-cuts-crypto-analyst-lark-davis-explains/
+10                                                                                                                                                                                                                                     https://biztoc.com/x/f743309ef97fd5f0
 11                                                                                                                                                                                                                                     https://biztoc.com/x/55c07287c5fbf346
 12                                                                                                                                                                                   https://www.investopedia.com/what-to-expect-in-the-markets-this-week-06-24-2024-8666609
 13                                                                                                                                                                        https://www.aol.com/finance/biden-administration-finalized-controversial-retirement-111700305.html
@@ -895,8 +896,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 19                                                                                                                                                         https://www.activistpost.com/2024/06/the-abstract-episode-35-rockefellers-covering-the-earth-with-chemtrails.html
 20                                                                                                                                                   https://www.cryptoglobe.com/latest/2024/06/why-bitcoin-is-not-skyrocketing-right-now-explains-prominent-crypto-analyst/
 21                                                                                                                                                           https://www.portfolio.hu/gazdasag/20240623/eichengreen-az-egyesult-allamok-adossaga-es-az-imf-alomvilaga-693251
-22                                                                                                  https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-befinden-sich-in-laengster-phase-ohne-absturz-seit-dem-jahr-2007_id_260074490.html
-23                                                                                                                          https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-erleben-laengste-anstiegsphase-seit-2007_id_260074490.html
+22                                                                                                                          https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-erleben-laengste-anstiegsphase-seit-2007_id_260074490.html
+23                                                                                                  https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-aktienmaerkte-befinden-sich-in-laengster-phase-ohne-absturz-seit-dem-jahr-2007_id_260074490.html
 24                                                                                                          https://www.focus.de/finanzen/boerse/nie-mehr-als-zwei-prozent-verloren-s-p-500-befindet-sich-in-laengster-aufschwung-phase-seit-dem-jahr-2007_id_260074490.html
 25                                                                                            https://www.stltoday.com/news/local/column/tony-messenger/messenger-st-louis-faces-a-double-barreled-legal-attack-on-poverty/article_ccb02c78-2fe5-11ef-910d-b792f77ddf35.html
 26                                                                                                                                                        https://fortune.com/2024/06/23/fed-rate-cuts-outlook-inflation-reports-personal-consumption-expenditures-core-pce/
@@ -922,8 +923,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6                                                    https://s.yimg.com/ny/api/res/1.2/CzWebzZ81o64SLRRvxQ4UQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2024-04/7d70aad0-f2cc-11ee-a57f-6fb602e47ca5
 7                                                             https://s.yimg.com/ny/api/res/1.2/9jQh0zNUQZCJxa6LWKJgWA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-images/2020-01/83572720-411f-11ea-9d72-2748648a96e7
 8                                                                                                                                                                            https://i.insider.com/626bf7cbc8c8ac001941105b?width=1200&amp;format=jpeg
-9                                                                                                                                                                                                                https://biztoc.com/cdn/799/og.png
-10                                                                                                                                                                     https://media.cryptoglobe.com/2023/05/Jerome-Powell-in-May-2023-768x401.jpg
+9                                                                                                                                                                      https://media.cryptoglobe.com/2023/05/Jerome-Powell-in-May-2023-768x401.jpg
+10                                                                                                                                                                                                               https://biztoc.com/cdn/799/og.png
 11                                                                                                                                                                                                  https://biztoc.com/cdn/55c07287c5fbf346_s.webp
 12                                                            https://www.investopedia.com/thmb/c634Yizam1CBK38ePsGgugEn5so=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2089849456-38ca0dba5cb54de781719cc5f00d7c60.jpg
 13                                                                                                                                                                   https://media.zenfs.com/en/aol_moneywise_380/25d2b555539ad9cea8fcfa7091eae862
@@ -962,8 +963,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6  2024-06-23T10:00:18Z
 7  2024-06-23T10:00:20Z
 8  2024-06-23T10:00:02Z
-9  2024-06-23T00:17:46Z
-10 2024-06-23T02:02:17Z
+9  2024-06-23T02:02:17Z
+10 2024-06-23T00:17:46Z
 11 2024-06-23T01:01:52Z
 12 2024-06-23T12:00:00Z
 13 2024-06-23T11:17:00Z
@@ -1002,8 +1003,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6        Todays certificate of deposit (CD) interest rates are some of the highest weve seen in more than a decade thanks to several rate hikes by the Federal Reserve. Still, CD rates vary widely across finan… [+3233 chars]
 7        Todays savings account interest rates are some of the highest weve seen in more than a decade due to several rate hikes by the Federal Reserve. Even so, savings interest rates vary widely by bank, so… [+2530 chars]
 8        Affiliate links for the products on this page are from partners that compensate us (see our advertiser disclosure with our list of partners for more details). However, our opinions are our own. See h… [+6806 chars]
-9         Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial TimesRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will pl… [+127 chars]
-10       In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoins price when the Federal Reserve eventually cuts int… [+3903 chars]
+9        In a video released on June 22, crypto analyst Lark Davis delves into a critical question for cryptocurrency investors: What will happen to Bitcoins price when the Federal Reserve eventually cuts int… [+3903 chars]
+10        Federal Reserve criticises 'living wills' of Bank of America, Citi, Goldman and JPMorgan Financial TimesRegulators hit Citigroup, JPMorgan Chase, Goldman Sachs and Bank of America over living will pl… [+127 chars]
 11        US regulators are flagging JPMorgan Chase, Bank of America, Citibank and Goldman Sachs over the banks contingency plans for trillions of dollars in derivatives.The Federal Reserve and Federal Deposit… [+132 chars]
 12       &lt;ul&gt;&lt;li&gt;The Federal Reserve's preferred measure of inflation, the Personal Consumption Expenditures (PCE) index, will be released Friday. The inflation data and a slew of other indicators during the … [+4561 chars]
 13     The Biden administration finalized a controversial new retirement rule here are 3 key things you need to know now\r\nWe adhere to strict standards of editorial integrity to help you make decisions with… [+4787 chars]
@@ -1068,8 +1069,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28               &lt;NA&gt;           Marketscreener.com
 29               &lt;NA&gt;                GlobeNewswire
 30               &lt;NA&gt;                 BusinessLine
-31               &lt;NA&gt;           Marketscreener.com
-32               &lt;NA&gt;                Investing.com
+31               &lt;NA&gt;                Investing.com
+32               &lt;NA&gt;           Marketscreener.com
 33               &lt;NA&gt;           Marketscreener.com
 34               &lt;NA&gt;           Marketscreener.com
 35               &lt;NA&gt;                Investing.com
@@ -1134,8 +1135,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                                                                                                                            &lt;NA&gt;
 29                                                                                                                                                                          SPHERICAL INSIGHTS LLP
 30                                                                                                                                                                                            &lt;NA&gt;
-31                                                                                                                                                                                            &lt;NA&gt;
-32                                                                                                                                                                                         Reuters
+31                                                                                                                                                                                         Reuters
+32                                                                                                                                                                                            &lt;NA&gt;
 33                                                                                                                                                                                            &lt;NA&gt;
 34                                                                                                                                                                                            &lt;NA&gt;
 35                                                                                                                                                                                         Reuters
@@ -1200,8 +1201,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                                                      Bank of Canada reviewing extraordinary actions taken during pandemic
 29                                                                                                     Global Skin Tightening Market Size To Exceed USD 5.2 Billion By 2033 | CAGR Of 14.02%
 30                                                                                                                                                               Editorial. Fed’s flip-flops
-31                                                                                                                                   China's yuan falls, tracks yen slide after BOJ decision
-32                                                                                                                       BOJ deputy governor Uchida signals readiness to raise rates further
+31                                                                                                                       BOJ deputy governor Uchida signals readiness to raise rates further
+32                                                                                                                                   China's yuan falls, tracks yen slide after BOJ decision
 33                                                                                                                                      JGB yields track US peers higher; BOJ decision looms
 34                                                                                                                              JGB yields track US peers higher; BOJ policy concerns remain
 35                                                                                                                   Economists remain split on timing of BOJ's next rate hike: Reuters poll
@@ -1212,8 +1213,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                              Bank of Japan to keep ultra-low rates, may signal bond taper
 41                                                                                                                                    Morning Bid: Dollar backed by dove with sharpest claws
 42                                                                                                                      The Growing Risk of Spillovers and Spillbacks in the Bank‑NBFI Nexus
-43                                                                                                                 BOJ to forgo July rate hike, taper $152 bln per year, says ex-policymaker
-44                                                                                                                              BOJ to keep ultra-low rates, debate fate of huge bond buying
+43                                                                                                                              BOJ to keep ultra-low rates, debate fate of huge bond buying
+44                                                                                                                 BOJ to forgo July rate hike, taper $152 bln per year, says ex-policymaker
 45                                                                                                                                     Bank of Japan to trim bond buying, keeps rates steady
 46                                                                                                                              BOJ to keep ultra-low rates, debate fate of huge bond buying
 47                                                                                                                               Asian markets, yen drop ahead of key Bank of Japan decision
@@ -1266,8 +1267,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28   (marketscreener.com) The Bank of Canada is reviewing\nthe extraordinary actions it took during the pandemic to\nstimulate the economy, in an effort to be better prepared for a\nfuture crisis, a top executive said on Thursday.\n The BoC, like several of its counte…
 29       The Global Skin Tightening Market Size was Valued at USD 1.4 Billion in 2023 and the Worldwide Skin Tightening Market Size is Expected to Reach USD 5.2 Billion by 2033, according to a research report published by Spherical Insights &amp; Consulting. Companies cov…
 30                                                                                                                                                                                                                     US Fed’s indecision poses challenges for central banks
-31   (marketscreener.com) China's yuan slipped to\nnear seven-month lows on Friday, in line with the yen's losses\nafter the Bank of Japan decided to keep its easy monetary\nsettings unchanged in its latest policy review.\n The yen's weakness has been weighing down As…
-32                                                                                                                                                                                                        BOJ deputy governor Uchida signals readiness to raise rates further
+31                                                                                                                                                                                                        BOJ deputy governor Uchida signals readiness to raise rates further
+32   (marketscreener.com) China's yuan slipped to\nnear seven-month lows on Friday, in line with the yen's losses\nafter the Bank of Japan decided to keep its easy monetary\nsettings unchanged in its latest policy review.\n The yen's weakness has been weighing down As…
 33   (marketscreener.com) Japanese government bond\nyields rose sharply on Monday, tracking a jump in Treasury\nyields after robust U.S. labour market data knocked back bets\nfor Federal Reserve interest rate cuts.\n Japanese yields were also supported by speculation …
 34   (marketscreener.com) Japanese government bond\n yields rose on Tuesday, tracking strength in their U.S.\npeers, while investors remained cautious regarding Japan's\nmonetary policy outlook and the central bank's tapering plans.\n The 10-year JGB yield edged up 1 …
 35                                                                                                                                                                                                    Economists remain split on timing of BOJ's next rate hike: Reuters poll
@@ -1278,8 +1279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                                                                                                               Bank of Japan to keep ultra-low rates, may signal bond taper
 41                                                                                                                                                                                                                     Morning Bid: Dollar backed by dove with sharpest claws
 42       Nonbank financial institutions (NBFIs) are growing, but banks support that growth via funding and liquidity insurance. The transformation of activities and risks from banks to a bank-NBFI nexus may have benefits in normal states of the world, as it may result…
-43  (marketscreener.com) The Bank of Japan is likely\nto trim bond buying by around 24 trillion yen \nannually in new guidance due next month, but forgo raising\ninterest rates at least until September, former board member\nMakoto Sakurai said on Monday.\n At its poli…
-44  (marketscreener.com) The Bank of Japan is expected\nto keep interest rates steady on this week and consider whether\nto offer clearer guidance on how it plans to reduce its huge\nbalance sheet, in a slow but steady retreat from its massive\nmonetary stimulus.\n Po…
+43  (marketscreener.com) The Bank of Japan is expected\nto keep interest rates steady on this week and consider whether\nto offer clearer guidance on how it plans to reduce its huge\nbalance sheet, in a slow but steady retreat from its massive\nmonetary stimulus.\n Po…
+44  (marketscreener.com) The Bank of Japan is likely\nto trim bond buying by around 24 trillion yen \nannually in new guidance due next month, but forgo raising\ninterest rates at least until September, former board member\nMakoto Sakurai said on Monday.\n At its poli…
 45  (marketscreener.com) The Bank of Japan kept\nultra-low interest rates on Friday but decided to start trimming\nits huge bond purchases in a slow but steady retreat from its\nmassive monetary stimulus.\n While it will continue to buy government bonds at the\ncurren…
 46                                                                                                                                                                                                               BOJ to keep ultra-low rates, debate fate of huge bond buying
 47       Asian markets and the yen weakened against the dollar Friday ahead of a policy decision by the Bank of Japan, while the euro remained under pressure as critical French parliamentary elections approach. Regional investors are trading cautiously, even after a s…
@@ -1332,8 +1333,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                         https://www.marketscreener.com/quote/currency/US-DOLLAR-CANADIAN-DOLLAR-2359031/news/Bank-of-Canada-reviewing-extraordinary-actions-taken-during-pandemic-46967526/
 29                                                                                                  https://www.globenewswire.com/news-release/2024/06/10/2895875/0/en/Global-Skin-Tightening-Market-Size-To-Exceed-USD-5-2-Billion-By-2033-CAGR-Of-14-02.html
 30                                                                                                                                                                  https://www.thehindubusinessline.com/opinion/editorial/feds-flip-flops/article68296310.ece
-31                                                                                                          https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/China-s-yuan-falls-tracks-yen-slide-after-BOJ-decision-46972071/
-32                                                                                                                                     https://www.investing.com/news/economy-news/boj-deputy-governor-uchida-signals-readiness-to-raise-rates-further-3491417
+31                                                                                                                                     https://www.investing.com/news/economy-news/boj-deputy-governor-uchida-signals-readiness-to-raise-rates-further-3491417
+32                                                                                                          https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/China-s-yuan-falls-tracks-yen-slide-after-BOJ-decision-46972071/
 33                                                                                                                                                    https://www.marketscreener.com/news/latest/JGB-yields-track-US-peers-higher-BOJ-decision-looms-46936777/
 34                                                                                                                                            https://www.marketscreener.com/news/latest/JGB-yields-track-US-peers-higher-BOJ-policy-concerns-remain-46989774/
 35                                                                                                                                   https://www.investing.com/news/economy-news/economists-remain-split-on-timing-of-bojs-next-rate-hike-reuters-poll-3486131
@@ -1344,8 +1345,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                                              https://www.investing.com/news/economy-news/bank-of-japan-to-keep-ultralow-rates-may-signal-bond-taper-3484117
 41                                                                                                                                                   https://www.investing.com/news/economy-news/morning-bid-dollar-backed-by-dove-with-sharpest-claws-3491358
 42                                                                                                                                 https://libertystreeteconomics.newyorkfed.org/2024/06/the-growing-risk-of-spillovers-and-spillbacks-in-the-bank-nbfi-nexus/
-43                                                                                                                                 https://www.marketscreener.com/news/latest/BOJ-to-forgo-July-rate-hike-taper-152-bln-per-year-says-ex-policymaker-46983109/
-44                                                                                                     https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/BOJ-to-keep-ultra-low-rates-debate-fate-of-huge-bond-buying-46951875/
+43                                                                                                     https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/BOJ-to-keep-ultra-low-rates-debate-fate-of-huge-bond-buying-46951875/
+44                                                                                                                                 https://www.marketscreener.com/news/latest/BOJ-to-forgo-July-rate-hike-taper-152-bln-per-year-says-ex-policymaker-46983109/
 45                                                                                                            https://www.marketscreener.com/quote/currency/EURO-JAPANESE-YEN-EUR-JPY-4592/news/Bank-of-Japan-to-trim-bond-buying-keeps-rates-steady-46971792/
 46                                                                                                                                              https://www.investing.com/news/economy-news/boj-to-keep-ultralow-rates-debate-fate-of-huge-bond-buying-3480376
 47                                                                                                                                                     https://www.digitaljournal.com/world/asian-markets-yen-drop-ahead-of-key-bank-of-japan-decision/article
@@ -1398,8 +1399,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28                                                                                                                                             https://www.marketscreener.com/images/reuters/2018-08/2018-08-31T180826Z_1_LYNXNPEE7U1JH-OCABS_RTROPTP_3_CBUSINESS-US-CANADA-RATES-POLL.JPG
 29                                                                                                                                                                                                     https://ml.globenewswire.com/Resource/Download/b27a94e8-407e-46ae-a5c2-47bb2a1c8a2e
 30                                                                                                                                                                                https://bl-i.thgim.com/public/incoming/pz59wn/article68297029.ece/alternates/LANDSCAPE_1200/PO30_Fed.jpg
-31                                                                                                                                                                        https://www.marketscreener.com/images/reuters/2016-04-29T073711Z_1_LYNXNPEC3S0B7_RTROPTP_2_BOJ-YEN-INVESTORS.JPG
-32                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_4_800x533_L_1413112066.jpg
+31                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_4_800x533_L_1413112066.jpg
+32                                                                                                                                                                        https://www.marketscreener.com/images/reuters/2016-04-29T073711Z_1_LYNXNPEC3S0B7_RTROPTP_2_BOJ-YEN-INVESTORS.JPG
 33                                                                                                                                                                                                                            https://www.marketscreener.com/images/twitter_MS_fdblanc.png
 34                                                                                                                                                                                                                             https://www.marketscreener.com/images/twitter_MS_fdnoir.png
 35                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_1_800x533_L_1413124982.jpg
@@ -1410,8 +1411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40                                                                                                                                                                                  https://i-invdn-com.investing.com/news/STOCK-EXCHANGE-RUSSIAN-TRADING-SYSTEMS_800x533_L_1414427815.jpg
 41                                                                                                                                                                                                   https://i-invdn-com.investing.com/news/Brazil-Stock-Market_3_800x533_L_1414427437.jpg
 42                                                                                                                                                                           https://libertystreeteconomics.newyorkfed.org/wp-content/uploads/sites/2/2024/06/LSE_NBFI_3_cetorelli_460.jpg
-43                                                                                                                                                                                                                            https://www.marketscreener.com/images/twitter_MS_fdblanc.png
-44                                                                                                                                                                https://www.marketscreener.com/images/reuters/2024-04/2024-04-05T064911Z_1_LYNXNPEK3407O_RTROPTP_3_JAPAN-ECONOMY-BOJ.JPG
+43                                                                                                                                                                https://www.marketscreener.com/images/reuters/2024-04/2024-04-05T064911Z_1_LYNXNPEK3407O_RTROPTP_3_JAPAN-ECONOMY-BOJ.JPG
+44                                                                                                                                                                                                                            https://www.marketscreener.com/images/twitter_MS_fdblanc.png
 45                                                                                                                                                                           https://img.zonebourse.com/reuters/2016-04/2016-04-29T073711Z_1_LYNXNPEC3S0B7_RTROPTP_2_BOJ-YEN-INVESTORS.JPG
 46                                                                                                                                                                                                         https://i-invdn-com.investing.com/news/indicatornews_4_800x533_L_1413112066.jpg
 47                                                                                                                                                                                  https://www.digitaljournal.com/wp-content/uploads/2024/06/62641ea6c858127e3daa80794f93daeaf5118a29.jpg
@@ -1464,8 +1465,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28 2024-06-13T13:35:04Z
 29 2024-06-10T11:00:00Z
 30 2024-06-16T14:56:22Z
-31 2024-06-14T05:07:31Z
-32 2024-06-21T06:50:49Z
+31 2024-06-21T06:50:49Z
+32 2024-06-14T05:07:31Z
 33 2024-06-10T06:23:21Z
 34 2024-06-18T04:24:48Z
 35 2024-06-17T05:36:04Z
@@ -1476,8 +1477,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40 2024-06-13T21:05:53Z
 41 2024-06-21T04:35:39Z
 42 2024-06-17T13:18:36Z
-43 2024-06-17T07:31:02Z
-44 2024-06-11T22:00:00Z
+43 2024-06-11T22:00:00Z
+44 2024-06-17T07:31:02Z
 45 2024-06-14T03:54:58Z
 46 2024-06-11T22:07:20Z
 47 2024-06-14T03:19:59Z
@@ -1530,8 +1531,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 28     OTTAWA, June 13 (Reuters) - The Bank of Canada is reviewing\r\nthe extraordinary actions it took during the pandemic to\r\nstimulate the economy, in an effort to be better prepared for a\r\nfuture crisis, … [+1511 chars]
 29          New York, United States , June 10, 2024 (GLOBE NEWSWIRE) -- The&nbsp;Global&nbsp;Skin Tightening Market&nbsp;Size is to Grow from USD 1.4 Billion in 2023 to USD 5.2 Billion by 2033, at a Compound Annual Growth Rate… [+10369 chars]
 30           After adopting a distinctly dovish tone in its last two monetary policy meetings and raising market hopes for an early start to the easing cycle, the US Federal Open Markets Committee (FOMC) pulled b… [+2766 chars]
-31     HONG KONG, June 14 (Reuters) - China's yuan slipped to\r\nnear seven-month lows on Friday, in line with the yen's losses\r\nafter the Bank of Japan decided to keep its easy monetary\r\nsettings unchanged i… [+1497 chars]
-32         By Leika Kihara\r\nTOKYO (Reuters) -Bank of Japan Deputy Governor Shinichi Uchida said on Friday the central bank will "adjust the degree of monetary support" if the economy and prices move in line wit… [+1331 chars]
+31         By Leika Kihara\r\nTOKYO (Reuters) -Bank of Japan Deputy Governor Shinichi Uchida said on Friday the central bank will "adjust the degree of monetary support" if the economy and prices move in line wit… [+1331 chars]
+32     HONG KONG, June 14 (Reuters) - China's yuan slipped to\r\nnear seven-month lows on Friday, in line with the yen's losses\r\nafter the Bank of Japan decided to keep its easy monetary\r\nsettings unchanged i… [+1497 chars]
 33     TOKYO, June 10 (Reuters) - Japanese government bond\r\nyields rose sharply on Monday, tracking a jump in Treasury\r\nyields after robust U.S. labour market data knocked back bets\r\nfor Federal Reserve int… [+1684 chars]
 34     TOKYO, June 18 (Reuters) - Japanese government bond\r\n(JGB) yields rose on Tuesday, tracking strength in their U.S.\r\npeers, while investors remained cautious regarding Japan's\r\nmonetary policy outlook… [+1790 chars]
 35           TOKYO (Reuters) - Economists remain split over the timing of the Bank of Japan's next interest rate hike, according to a new Reuters poll, after the central bank's decision to announce a quantitative… [+1423 chars]
@@ -1542,8 +1543,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 40         By Leika Kihara\r\nTOKYO (Reuters) - The Bank of Japan is likely to keep interest rates ultra-low on Friday but consider whether to start reducing its huge balance sheet in a slow but steady retreat fr… [+2649 chars]
 41         A look at the day ahead in European and global markets from Kevin Buckland\r\nKing dollar is exerting its authority to end the week at new heights. The yen, in particular, has been put in its place, si… [+2112 chars]
 42 Viral V. Acharya, Nicola Cetorelli, and Bruce Tuckman\n\n\n\n\n\n\n\n\nNonbank financial institutions (NBFIs) are growing, but banks support that growth via funding and liquidity insurance. The transformation… [+14020 chars]
-43 * BOJ seen trimming monthly bond buying by 2 trln yen -\r\nSakurai\r\n* Next rate hike likely won't come until September at\r\nearliest\r\n* BOJ may hike rates to 0.5% by end of 2025\r\n* Weak yen likely drove… [+3239 chars]
-44   * BOJ decision expected 0230-0400GMT Friday after 2-day\r\nmeeting\r\n* Board seen keeping short-term policy rate steady at 0-0.1%\r\n* BOJ may slow bond buying, drop clues on future taper plan\r\n* Soft spe… [+3219 chars]
+43   * BOJ decision expected 0230-0400GMT Friday after 2-day\r\nmeeting\r\n* Board seen keeping short-term policy rate steady at 0-0.1%\r\n* BOJ may slow bond buying, drop clues on future taper plan\r\n* Soft spe… [+3219 chars]
+44 * BOJ seen trimming monthly bond buying by 2 trln yen -\r\nSakurai\r\n* Next rate hike likely won't come until September at\r\nearliest\r\n* BOJ may hike rates to 0.5% by end of 2025\r\n* Weak yen likely drove… [+3239 chars]
 45   * BOJ keeps short-term rate target unchanged at 0-0.1%\r\n* Board keeps bond buying pace at 6 trln yen per month\r\n* Decides to lay out details on bond-taper plan at July\r\nmeeting\r\n* Governor Ueda expec… [+3205 chars]
 46         By Leika Kihara\r\nTOKYO (Reuters) - The Bank of Japan is expected to keep interest rates steady on this week and consider whether to offer clearer guidance on how it plans to reduce its huge balance s… [+2820 chars]
 47         The Bank of Japan is expected to further tighten monetary policy when it concludes its meeting - Copyright AFP Kazuhiro NOGI\r\nAsian markets and the yen weakened against the dollar Friday ahead of a p… [+4197 chars]
