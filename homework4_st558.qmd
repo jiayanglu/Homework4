@@ -14,19 +14,7 @@ editor_options:
 
 2.  Suppose we have a list called my_list. Each element of the list is a numeric data frame (all columns are numeric). We want use lapply() to run the code cor(numeric_matrix, method = "kendall") on each element of the list. Write code to do this below! (I’m really trying to ask you how you specify method = "kendall" when calling lapply())
 
-```{r}
-#example is given below to demonstrate this problem
-#set the seed for random number generator to get the same result every time I run the code
-set.seed(201)
-#create two data frames with all numeric columns
-df_1 <- data.frame(runif(10), 11:20)
-df_2 <- data.frame(21:30, 31:40, rnorm(10))
-#create a list containing the above two data frames
-my_list <- list(df_1, df_2)
-my_list
-#cor function is passed directly to lapply() function with additional argument method = "kendall"
-lapply(my_list, cor, method = "kendall")
-```
+-   A: lapply(my_list, function(x) cor(x, method = "kendall"))
 
 3.  What are two advantages of using purrr functions instead of the BaseR apply family?
 
