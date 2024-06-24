@@ -123,13 +123,18 @@ wrapper <- function(resp, pred, metrics, ...){
     stop("Not a vector or not atomic or not numeric my friend")
   } else if (metrics == "RMSE"){
     RMSE <- getRMSE(resp, pred, ...)
+    attributes(RMSE)$names <- "RMSE"
     return(RMSE)
+    
   } else if (metrics == "MAE") {
     MAE <- getMAE(resp, pred, ...)
+    attributes(MAE)$names <- "MAE"
     return(MAE)
   } else if (metrics == "both"){
     RMSE <- getRMSE(resp, pred, ...)
+    attributes(RMSE)$names <- "RMSE"
     MAE <- getMAE(resp, pred, ...)
+    attributes(MAE)$names <- "MAE"
     return(list(RMSE, MAE))
   }
 }
@@ -179,15 +184,21 @@ wrapper(resp, pred, metrics = "MAE", na.rm = TRUE)
 wrapper(resp, pred, metrics = "both", na.rm = TRUE)
 ```
 
-- Finally, test your function by passing it incorrect data (i.e. a data frame or something else instead of vectors)
+- Finally, I tested my function by passing it data frames. I stored both resp and pred vectors as data frames, and passed them into this function. It shows the error message I wrote in the function in the output, suggesting that the incorrect data were passed on. 
 
 ```{r, error=TRUE}
-resp_df <- data.frame(1:10, 11:20)
-pred_df <- data.frame(2:11, 12:21)
+resp_df <- as.data.frame(resp)
+pred_df <- as.data.frame(pred)
 #call the wrapper function with metrics = "RMSE" without specifying na.rm argument and the output shows the error message
 wrapper(resp_df, pred_df, metrics = "RMSE")
+```
+
+```{r, error=TRUE}
 #call the wrapper function with metrics = "MAE" without specifying na.rm argument and the output shows the error message
 wrapper(resp_df, pred_df, metrics = "MAE")
+```
+
+```{r, error=TRUE}
 #call the wrapper function with metrics = "both" without specifying na.rm argument and the output shows the error message
 wrapper(resp_df, pred_df, metrics = "both")
 ```
