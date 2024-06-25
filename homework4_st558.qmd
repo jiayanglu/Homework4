@@ -59,19 +59,15 @@ getRMSE(resp, pred)
 - Test the RMSE function with and without specifying the behavior to deal with missing values.
 
 ```{r}
-#create a new vector by replacing the 99th and 100th element in x with NA
-x_with_na <- x
-x_with_na[99:100] <- NA_real_
-x_with_na
-#calculate respective response and prediction value with x_with_na
-resp <- 3 + 10*x_with_na + rnorm(n)
-pred <- predict(lm(resp ~ x_with_na), data.frame(x_with_na))
+#create a new response vector by replacing the 99th and 100th element with NA
+resp_with_na <- resp
+resp_with_na[99:100] <- NA_real_
 
-#supply the getRMSE function without or with specifying the behavior to delete NA values and test on the response and prediction values with x2 which has two NA values
-#it returns NA when supplying the getRMSE function without specifying na.rm argument
-getRMSE(resp, pred)
-#it returns the calculated value when supplying the getRMSE function with na.rm=TRUE
-getRMSE(resp, pred, na.rm = TRUE)
+#supply the getRMSE function without or with specifying the behavior to delete NA values and test on the response values which has two NA values
+#it returns NA when supplying the getRMSE function without specifying na.rm=TRUE argument
+getRMSE(resp_with_na, pred)
+#it returns the calculated value when supplying the getRMSE function with na.rm=TRUE argument
+getRMSE(resp_with_na, pred, na.rm = TRUE)
 ```
 
 3. Write a function called getMAE() that follows the specifications of the getRMSE() function.
@@ -88,11 +84,6 @@ getMAE <- function(resp, pred, ...){
 - Test the MAE function using this data.
 
 ```{r}
-set.seed(10)
-n <- 100
-x <- runif(n)
-resp <- 3 + 10*x + rnorm(n)
-pred <- predict(lm(resp ~ x), data.frame(x))
 #supply the above resp and pred vectors in the getMAE function with response_vector=resp and prediction_vector=pred
 getMAE(resp, pred)
 ```
@@ -100,22 +91,14 @@ getMAE(resp, pred)
 - Test the MAE function with and without specifying the behavior to deal with missing values.
 
 ```{r}
-#create a new vector by replacing the 99th and 100th element in x with NA
-x_with_na <- x
-x_with_na[99:100] <- NA_real_
-x_with_na
-#calculate respective response and prediction value with x_with_na
-resp <- 3 + 10*x_with_na + rnorm(n)
-pred <- predict(lm(resp ~ x_with_na), data.frame(x_with_na))
-#supply the getMAE function without or with specifying the behavior to delete NA values and test on the response and prediction values with x2 which has two NA values
-#it returns NA when supplying the getRMSE function without specifying na.rm argument
-getMAE(resp, pred)
+#supply the getMAE function without or with specifying the behavior to delete NA values and test on the response values which has two NA values
+#it returns NA when supplying the getMAE function without specifying na.rm=TRUE argument
+getMAE(resp_with_na, pred)
 #it returns the calculated value when supplying the getMAE function with na.rm=TRUE
-getMAE(resp, pred, na.rm = TRUE)
+getMAE(resp_with_na, pred, na.rm = TRUE)
 ```
 
-5. Create a wrapper function that can be used to get either or both metrics returned with a single
-function call. 
+5. Create a wrapper function that can be used to get either or both metrics returned with a single function call. 
 
 ```{r}
 wrapper <- function(resp, pred, metrics = c("RMSE", "MAE", "both"), ...){
@@ -137,7 +120,6 @@ wrapper <- function(resp, pred, metrics = c("RMSE", "MAE", "both"), ...){
     return(list(RMSE, MAE))
   }
 }
-  
 ```
 
 6. Run the following code to create some response values and predictions.
@@ -145,11 +127,6 @@ wrapper <- function(resp, pred, metrics = c("RMSE", "MAE", "both"), ...){
 - Test the new function using this data.
 
 ```{r}
-set.seed(10)
-n <- 100
-x <- runif(n)
-resp <- 3 + 10*x + rnorm(n)
-pred <- predict(lm(resp ~ x), data.frame(x))
 #call the wrapper function with metrics = "RMSE" and the output is generated according to the request
 wrapper(resp, pred, metrics = "RMSE")
 #call the wrapper function with metrics = "MAE" and the output is generated according to the request
@@ -161,26 +138,19 @@ wrapper(resp, pred, metrics = "both")
 - Repeat with replacing two of the response values with missing values (NA_real_).
 
 ```{r}
-#create a new vector by replacing the 99th and 100th element in x with NA
-x_with_na <- x
-x_with_na[99:100] <- NA_real_
-x_with_na
-#calculate respective response and prediction value with x_with_na
-resp <- 3 + 10*x_with_na + rnorm(n)
-pred <- predict(lm(resp ~ x_with_na), data.frame(x_with_na))
 #call the wrapper function with metrics = "RMSE" without specifying na.rm argument and the output NA is generated
-wrapper(resp, pred, metrics = "RMSE")
+wrapper(resp_with_na, pred, metrics = "RMSE")
 #call the wrapper function with metrics = "MAE" without specifying na.rm argument and the output NA is generated
-wrapper(resp, pred, metrics = "MAE")
+wrapper(resp_with_na, pred, metrics = "MAE")
 #call the wrapper function with metrics = "both" without specifying na.rm argument and the output NA is generated
-wrapper(resp, pred, metrics = "both")
+wrapper(resp_with_na, pred, metrics = "both")
 
 #call the wrapper function with metrics = "RMSE" and the output is generated according to the request
-wrapper(resp, pred, metrics = "RMSE", na.rm = TRUE)
+wrapper(resp_with_na, pred, metrics = "RMSE", na.rm = TRUE)
 #call the wrapper function with metrics = "MAE" and the output is generated according to the request
-wrapper(resp, pred, metrics = "MAE", na.rm = TRUE)
+wrapper(resp_with_na, pred, metrics = "MAE", na.rm = TRUE)
 #call the wrapper function with metrics = "both" and the output is generated according to the request
-wrapper(resp, pred, metrics = "both", na.rm = TRUE)
+wrapper(resp_with_na, pred, metrics = "both", na.rm = TRUE)
 ```
 
 - Finally, I tested my function by passing it data frames. I stored both resp and pred vectors as data frames, and passed them into this function. It shows the error message I wrote in the function in the output, suggesting that the incorrect data were passed on. 
