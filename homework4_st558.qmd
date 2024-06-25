@@ -35,7 +35,7 @@ editor_options:
 ```{r}
 #write a function using the RMSE formula with additional argument in mean function to removes the NA values in the computation
 getRMSE <- function(resp, pred, ...){
-  mean <- mean(sum((resp - pred)^2, ...), ...)
+  mean <- mean((resp - pred)^2, ...)
   RMSE <- sqrt(mean)
   return(RMSE)
 }
@@ -78,7 +78,7 @@ getRMSE(resp, pred, na.rm = TRUE)
 
 ```{r}
 getMAE <- function(resp, pred, ...){
-  MAE <- mean(sum(abs(resp - pred), ...), ...)
+  MAE <- mean(abs(resp - pred), ...)
   return(MAE)
 }
 ```
@@ -118,14 +118,13 @@ getMAE(resp, pred, na.rm = TRUE)
 function call. 
 
 ```{r}
-wrapper <- function(resp, pred, metrics, ...){
+wrapper <- function(resp, pred, metrics = c("RMSE", "MAE", "both"), ...){
   if (!is.vector(resp) | !is.atomic(resp) | !is.numeric(resp) | !is.vector(pred) | !is.atomic(pred) | !is.numeric(pred)) {
     stop("Not a vector or not atomic or not numeric my friend")
   } else if (metrics == "RMSE"){
     RMSE <- getRMSE(resp, pred, ...)
     attributes(RMSE)$names <- "RMSE"
     return(RMSE)
-    
   } else if (metrics == "MAE") {
     MAE <- getMAE(resp, pred, ...)
     attributes(MAE)$names <- "MAE"
